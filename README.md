@@ -16,7 +16,7 @@ The generated certificate can be used within others addons.
 The installation of this add-on is straightforward and easy to do.
 
 1. Navigate in your Home Assistant frontend to **Hass.io** -> **Add-on Store**.
-2. Add a new repository by URL `https://github.com/troykelly/hassio-addons-letsencrypt-lexicon`
+2. Add a new repository by URL `https://github.com/troykelly/hassio-addons`
 3. Find the "letslexicon" add-on and click it.
 4. Click on the "INSTALL" button.
 
