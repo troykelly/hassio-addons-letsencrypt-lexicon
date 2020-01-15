@@ -17,4 +17,4 @@ RUN apk add --no-cache --update openssl libffi musl \
 # Copy data
 COPY data/run.sh /
 
-#CMD [ "/run.sh" ]
+CMD [ "/run.sh" ]
