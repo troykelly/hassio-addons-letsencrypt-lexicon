@@ -202,6 +202,3 @@ fi
 bashio::log.info "Cleaning Up"
 PROVIDER=${DNS_PROVIDER} /opt/dehydrated/dehydrated --cleanup --out /ssl
 bashio::log.info "Finished"
-
-ls -al /ssl
-ls -al "$CERT_DIR"
