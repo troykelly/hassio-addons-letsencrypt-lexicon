@@ -161,14 +161,47 @@ fi
 
 echo "# Home Assistant Domains" > "$CERT_DIR"/domains.txt
 
-for line in $DOMAINS; do
-    printf "${line} " >> "$CERT_DIR"/domains.txt
-done
+FIRSTCERTALIAS=""
 
-printf "\n# END Home Assistant Domains\n" >> "$CERT_DIR"/domains.txt
+while IFS= read -r line
+do
+  CERTLIST=( $line )
+  CERTALIAS="${CERTLIST[0]//[^A-Za-z0-9_-]/_}"
+  if [ "$FIRSTCERTALIAS" == "" ]; then
+    FIRSTCERTALIAS="${CERTALIAS}"
+  fi
+  bashio::log.info "[${CERTALIAS}]:\t$line"
+  printf "${line} > ${CERTALIAS}\n" >> "$CERT_DIR"/domains.txt
+done < <(printf '%s\n' "$DOMAINS")
 
-PROVIDER=${DNS_PROVIDER} /opt/dehydrated/dehydrated --cron --hook /opt/dehydrated/dehydrated.default.sh --challenge dns-01
+printf "# END Home Assistant Domains\n" >> "$CERT_DIR"/domains.txt
+
+bashio::log.info "Requesting domains from LetsEncrypt"
+cat "$CERT_DIR"/domains.txt
+
+PROVIDER=${DNS_PROVIDER} /opt/dehydrated/dehydrated --challenge dns-01 --out /ssl --keep-going --cron --hook /opt/dehydrated/dehydrated.default.sh
+
+bashio::log.info "Copying domains and keys"
 
 # copy certs to store
-cp "$CERT_DIR"/certs/*/privkey.pem "/ssl/$KEYFILE"
-cp "$CERT_DIR"/certs/*/fullchain.pem "/ssl/$CERTFILE"
+if [ "$KEYFILE" != "" ]; then
+  if [[ -f "/ssl/${FIRSTCERTALIAS}/privkey.pem" ]]; then
+      cp -f /ssl/${FIRSTCERTALIAS}/privkey.pem /ssl/"$KEYFILE"
+    else
+      bashio::log.error "Failed to get ${KEYFILE} from ${FIRSTCERTALIAS}"
+  fi
+fi
+if [ "$CERTFILE" != "" ]; then
+  if [[ -f "/ssl/${FIRSTCERTALIAS}/fullchain.pem" ]]; then
+      cp -f /ssl/${FIRSTCERTALIAS}/fullchain.pem /ssl/"$CERTFILE"
+    else
+      bashio::log.error "Failed to get ${CERTFILE} from ${FIRSTCERTALIAS}"
+  fi
+fi
+
+bashio::log.info "Cleaning Up"
+PROVIDER=${DNS_PROVIDER} /opt/dehydrated/dehydrated --cleanup --out /ssl
+bashio::log.info "Finished"
+
+ls -al /ssl
+ls -al "$CERT_DIR"
