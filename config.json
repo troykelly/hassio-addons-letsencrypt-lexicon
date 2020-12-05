@@ -1,6 +1,6 @@
 {
   "name": "Let's Encrypt with Lexicon",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "slug": "letslexicon",
   "description": "Manage certificate from Let's Encrypt using Lexicon DNS",
   "url": "https://github.com/troykelly/hassio-addons-letsencrypt-lexicon/",
