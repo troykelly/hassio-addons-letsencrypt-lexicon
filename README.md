@@ -296,7 +296,7 @@ In case you've found a bug, please [open an issue on our GitHub][issue].
 [forum]: https://community.home-assistant.io
 [issue]: https://github.com/troykelly/hassio-addons-letsencrypt-lexicon/issues
 [certbot]: https://certbot.eff.org
-[source-shield]: https://img.shields.io/badge/version-v0.6.5-blue.svg
-[source]: https://github.com/lukas2511/dehydrated/releases/tag/v0.6.5
-[release-shield]: https://img.shields.io/badge/version-v1.0.4-blue.svg
-[release]: https://github.com/troykelly/hassio-addons-letsencrypt-lexicon/releases/tag/v1.0.4
+[source-shield]: https://img.shields.io/badge/version-v0.7.0-blue.svg
+[source]: https://github.com/lukas2511/dehydrated/releases/tag/v0.7.0
+[release-shield]: https://img.shields.io/badge/version-v1.0.5-blue.svg
+[release]: https://github.com/troykelly/hassio-addons-letsencrypt-lexicon/releases/tag/v1.0.5
