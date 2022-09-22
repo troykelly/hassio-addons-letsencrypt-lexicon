@@ -3,6 +3,13 @@ configuration:
   email:
     name: Email Address
     description: The email address to provide to Let's Encrypt on certificate generation.
+  updatedelay:
+    name: Update Delay
+    description: |
+      How many seconds to wait after updating your DNS records. This may be required,
+      depending on how slow your DNS host is to begin serving new DNS records after updating
+      them via the API. 30 seconds is a safe default, but some providers can be very slow
+      (e.g. Linode).
   domains:
     name: Domains
     description: The list of domains to maintain.
