@@ -13,18 +13,18 @@ arch:
   - armv7
   - i386
 map:
-- ssl:rw
+  - ssl:rw
 options:
   email:
   domains:
-  -
+    -
   certfile: fullchain.pem
   keyfile: privkey.pem
   dns: {}
 schema:
   email: email
   domains:
-  - str
+    - str
   certfile: str
   keyfile: str
   dns:
