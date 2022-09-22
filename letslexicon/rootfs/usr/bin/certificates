@@ -184,551 +184,711 @@ refresh_certificates() {
     update_delay=$(bashio::config 'updatedelay')
 
     export PROVIDER_UPDATE_DELAY="${update_delay}"
-
-    if bashio::config.has_value 'dns.aliyun_key_id'; then
-        LEXICON_ALIYUN_KEY_ID=$(bashio::config 'dns.aliyun_key_id')
-        export LEXICON_ALIYUN_KEY_ID
+    if bashio::config.has_value 'dns.aliyun_auth_key_id'; then
+      LEXICON_ALIYUN_AUTH_KEY_ID=$(bashio::config 'aliyun_auth_key_id')
+      export LEXICON_ALIYUN_AUTH_KEY_ID
     fi
-    if bashio::config.has_value 'dns.aliyun_secret'; then
-        LEXICON_ALIYUN_SECRET=$(bashio::config 'dns.aliyun_secret')
-        export LEXICON_ALIYUN_SECRET
+    if bashio::config.has_value 'dns.aliyun_auth_secret'; then
+      LEXICON_ALIYUN_AUTH_SECRET=$(bashio::config 'aliyun_auth_secret')
+      export LEXICON_ALIYUN_AUTH_SECRET
     fi
-    if bashio::config.has_value 'dns.aurora_api_key'; then
-        LEXICON_AURORA_API_KEY=$(bashio::config 'dns.aurora_api_key')
-        export LEXICON_AURORA_API_KEY
+    if bashio::config.has_value 'dns.aurora_auth_api_key'; then
+      LEXICON_AURORA_AUTH_API_KEY=$(bashio::config 'aurora_auth_api_key')
+      export LEXICON_AURORA_AUTH_API_KEY
     fi
-    if bashio::config.has_value 'dns.aurora_secret_key'; then
-        LEXICON_AURORA_SECRET_KEY=$(bashio::config 'dns.aurora_secret_key')
-        export LEXICON_AURORA_SECRET_KEY
+    if bashio::config.has_value 'dns.aurora_auth_secret_key'; then
+      LEXICON_AURORA_AUTH_SECRET_KEY=$(bashio::config 'aurora_auth_secret_key')
+      export LEXICON_AURORA_AUTH_SECRET_KEY
     fi
-    if bashio::config.has_value 'dns.azure_client_id'; then
-        LEXICON_AZURE_CLIENT_ID=$(bashio::config 'dns.azure_client_id')
-        export LEXICON_AZURE_CLIENT_ID
+    if bashio::config.has_value 'dns.azure_auth_client_id'; then
+      LEXICON_AZURE_AUTH_CLIENT_ID=$(bashio::config 'azure_auth_client_id')
+      export LEXICON_AZURE_AUTH_CLIENT_ID
     fi
-    if bashio::config.has_value 'dns.azure_client_secret'; then
-        LEXICON_AZURE_CLIENT_SECRET=$(bashio::config 'dns.azure_client_secret')
-        export LEXICON_AZURE_CLIENT_SECRET
+    if bashio::config.has_value 'dns.azure_auth_client_secret'; then
+      LEXICON_AZURE_AUTH_CLIENT_SECRET=$(bashio::config 'azure_auth_client_secret')
+      export LEXICON_AZURE_AUTH_CLIENT_SECRET
     fi
-    if bashio::config.has_value 'dns.azure_tenant_id'; then
-        LEXICON_AZURE_TENANT_ID=$(bashio::config 'dns.azure_tenant_id')
-        export LEXICON_AZURE_TENANT_ID
+    if bashio::config.has_value 'dns.azure_auth_tenant_id'; then
+      LEXICON_AZURE_AUTH_TENANT_ID=$(bashio::config 'azure_auth_tenant_id')
+      export LEXICON_AZURE_AUTH_TENANT_ID
     fi
-    if bashio::config.has_value 'dns.azure_subscription_id'; then
-        LEXICON_AZURE_SUBSCRIPTION_ID=$(bashio::config 'dns.azure_subscription_id')
-        export LEXICON_AZURE_SUBSCRIPTION_ID
+    if bashio::config.has_value 'dns.azure_auth_subscription_id'; then
+      LEXICON_AZURE_AUTH_SUBSCRIPTION_ID=$(bashio::config 'azure_auth_subscription_id')
+      export LEXICON_AZURE_AUTH_SUBSCRIPTION_ID
     fi
     if bashio::config.has_value 'dns.azure_resource_group'; then
-        LEXICON_AZURE_RESOURCE_GROUP=$(bashio::config 'dns.azure_resource_group')
-        export LEXICON_AZURE_RESOURCE_GROUP
+      LEXICON_AZURE_RESOURCE_GROUP=$(bashio::config 'azure_resource_group')
+      export LEXICON_AZURE_RESOURCE_GROUP
     fi
-    if bashio::config.has_value 'dns.cloudflare_username'; then
-        LEXICON_CLOUDFLARE_USERNAME=$(bashio::config 'dns.cloudflare_username')
-        export LEXICON_CLOUDFLARE_USERNAME
+    if bashio::config.has_value 'dns.cloudflare_auth_username'; then
+      LEXICON_CLOUDFLARE_AUTH_USERNAME=$(bashio::config 'cloudflare_auth_username')
+      export LEXICON_CLOUDFLARE_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.cloudflare_token'; then
-        LEXICON_CLOUDFLARE_TOKEN=$(bashio::config 'dns.cloudflare_token')
-        export LEXICON_CLOUDFLARE_TOKEN
+    if bashio::config.has_value 'dns.cloudflare_auth_token'; then
+      LEXICON_CLOUDFLARE_AUTH_TOKEN=$(bashio::config 'cloudflare_auth_token')
+      export LEXICON_CLOUDFLARE_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.cloudns_id'; then
-        LEXICON_CLOUDNS_ID=$(bashio::config 'dns.cloudns_id')
-        export LEXICON_CLOUDNS_ID
+    if bashio::config.has_value 'dns.cloudflare_zone_id'; then
+      LEXICON_CLOUDFLARE_ZONE_ID=$(bashio::config 'cloudflare_zone_id')
+      export LEXICON_CLOUDFLARE_ZONE_ID
     fi
-    if bashio::config.has_value 'dns.cloudns_subid'; then
-        LEXICON_CLOUDNS_SUBID=$(bashio::config 'dns.cloudns_subid')
-        export LEXICON_CLOUDNS_SUBID
+    if bashio::config.has_value 'dns.cloudns_auth_id'; then
+      LEXICON_CLOUDNS_AUTH_ID=$(bashio::config 'cloudns_auth_id')
+      export LEXICON_CLOUDNS_AUTH_ID
     fi
-    if bashio::config.has_value 'dns.cloudns_subuser'; then
-        LEXICON_CLOUDNS_SUBUSER=$(bashio::config 'dns.cloudns_subuser')
-        export LEXICON_CLOUDNS_SUBUSER
+    if bashio::config.has_value 'dns.cloudns_auth_subid'; then
+      LEXICON_CLOUDNS_AUTH_SUBID=$(bashio::config 'cloudns_auth_subid')
+      export LEXICON_CLOUDNS_AUTH_SUBID
     fi
-    if bashio::config.has_value 'dns.cloudns_password'; then
-        LEXICON_CLOUDNS_PASSWORD=$(bashio::config 'dns.cloudns_password')
-        export LEXICON_CLOUDNS_PASSWORD
+    if bashio::config.has_value 'dns.cloudns_auth_subuser'; then
+      LEXICON_CLOUDNS_AUTH_SUBUSER=$(bashio::config 'cloudns_auth_subuser')
+      export LEXICON_CLOUDNS_AUTH_SUBUSER
+    fi
+    if bashio::config.has_value 'dns.cloudns_auth_password'; then
+      LEXICON_CLOUDNS_AUTH_PASSWORD=$(bashio::config 'cloudns_auth_password')
+      export LEXICON_CLOUDNS_AUTH_PASSWORD
     fi
     if bashio::config.has_value 'dns.cloudns_weight'; then
-        LEXICON_CLOUDNS_WEIGHT=$(bashio::config 'dns.cloudns_weight')
-        export LEXICON_CLOUDNS_WEIGHT
+      LEXICON_CLOUDNS_WEIGHT=$(bashio::config 'cloudns_weight')
+      export LEXICON_CLOUDNS_WEIGHT
     fi
     if bashio::config.has_value 'dns.cloudns_port'; then
-        LEXICON_CLOUDNS_PORT=$(bashio::config 'dns.cloudns_port')
-        export LEXICON_CLOUDNS_PORT
+      LEXICON_CLOUDNS_PORT=$(bashio::config 'cloudns_port')
+      export LEXICON_CLOUDNS_PORT
     fi
-    if bashio::config.has_value 'dns.cloudxns_username'; then
-        LEXICON_CLOUDXNS_USERNAME=$(bashio::config 'dns.cloudxns_username')
-        export LEXICON_CLOUDXNS_USERNAME
+    if bashio::config.has_value 'dns.cloudxns_auth_username'; then
+      LEXICON_CLOUDXNS_AUTH_USERNAME=$(bashio::config 'cloudxns_auth_username')
+      export LEXICON_CLOUDXNS_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.cloudxns_token'; then
-        LEXICON_CLOUDXNS_TOKEN=$(bashio::config 'dns.cloudxns_token')
-        export LEXICON_CLOUDXNS_TOKEN
+    if bashio::config.has_value 'dns.cloudxns_auth_token'; then
+      LEXICON_CLOUDXNS_AUTH_TOKEN=$(bashio::config 'cloudxns_auth_token')
+      export LEXICON_CLOUDXNS_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.conoha_region'; then
-        LEXICON_CONOHA_REGION=$(bashio::config 'dns.conoha_region')
-        export LEXICON_CONOHA_REGION
+    if bashio::config.has_value 'dns.conoha_auth_region'; then
+      LEXICON_CONOHA_AUTH_REGION=$(bashio::config 'conoha_auth_region')
+      export LEXICON_CONOHA_AUTH_REGION
     fi
-    if bashio::config.has_value 'dns.conoha_token'; then
-        LEXICON_CONOHA_TOKEN=$(bashio::config 'dns.conoha_token')
-        export LEXICON_CONOHA_TOKEN
+    if bashio::config.has_value 'dns.conoha_auth_token'; then
+      LEXICON_CONOHA_AUTH_TOKEN=$(bashio::config 'conoha_auth_token')
+      export LEXICON_CONOHA_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.conoha_username'; then
-        LEXICON_CONOHA_USERNAME=$(bashio::config 'dns.conoha_username')
-        export LEXICON_CONOHA_USERNAME
+    if bashio::config.has_value 'dns.conoha_auth_username'; then
+      LEXICON_CONOHA_AUTH_USERNAME=$(bashio::config 'conoha_auth_username')
+      export LEXICON_CONOHA_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.conoha_password'; then
-        LEXICON_CONOHA_PASSWORD=$(bashio::config 'dns.conoha_password')
-        export LEXICON_CONOHA_PASSWORD
+    if bashio::config.has_value 'dns.conoha_auth_password'; then
+      LEXICON_CONOHA_AUTH_PASSWORD=$(bashio::config 'conoha_auth_password')
+      export LEXICON_CONOHA_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.conoha_tenant_id'; then
-        LEXICON_CONOHA_TENANT_ID=$(bashio::config 'dns.conoha_tenant_id')
-        export LEXICON_CONOHA_TENANT_ID
+    if bashio::config.has_value 'dns.conoha_auth_tenant_id'; then
+      LEXICON_CONOHA_AUTH_TENANT_ID=$(bashio::config 'conoha_auth_tenant_id')
+      export LEXICON_CONOHA_AUTH_TENANT_ID
     fi
-    if bashio::config.has_value 'dns.constellix_username'; then
-        LEXICON_CONSTELLIX_USERNAME=$(bashio::config 'dns.constellix_username')
-        export LEXICON_CONSTELLIX_USERNAME
+    if bashio::config.has_value 'dns.constellix_auth_username'; then
+      LEXICON_CONSTELLIX_AUTH_USERNAME=$(bashio::config 'constellix_auth_username')
+      export LEXICON_CONSTELLIX_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.constellix_token'; then
-        LEXICON_CONSTELLIX_TOKEN=$(bashio::config 'dns.constellix_token')
-        export LEXICON_CONSTELLIX_TOKEN
+    if bashio::config.has_value 'dns.constellix_auth_token'; then
+      LEXICON_CONSTELLIX_AUTH_TOKEN=$(bashio::config 'constellix_auth_token')
+      export LEXICON_CONSTELLIX_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.digitalocean_token'; then
-        LEXICON_DIGITALOCEAN_TOKEN=$(bashio::config 'dns.digitalocean_token')
-        export LEXICON_DIGITALOCEAN_TOKEN
+    if bashio::config.has_value 'dns.ddns_auth_token'; then
+      LEXICON_DDNS_AUTH_TOKEN=$(bashio::config 'ddns_auth_token')
+      export LEXICON_DDNS_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.dinahosting_username'; then
-        LEXICON_DINAHOSTING_USERNAME=$(bashio::config 'dns.dinahosting_username')
-        export LEXICON_DINAHOSTING_USERNAME
+    if bashio::config.has_value 'dns.ddns_ddns_server'; then
+      LEXICON_DDNS_DDNS_SERVER=$(bashio::config 'ddns_ddns_server')
+      export LEXICON_DDNS_DDNS_SERVER
     fi
-    if bashio::config.has_value 'dns.dinahosting_password'; then
-        LEXICON_DINAHOSTING_PASSWORD=$(bashio::config 'dns.dinahosting_password')
-        export LEXICON_DINAHOSTING_PASSWORD
+    if bashio::config.has_value 'dns.digitalocean_auth_token'; then
+      LEXICON_DIGITALOCEAN_AUTH_TOKEN=$(bashio::config 'digitalocean_auth_token')
+      export LEXICON_DIGITALOCEAN_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.directadmin_password'; then
-        LEXICON_DIRECTADMIN_PASSWORD=$(bashio::config 'dns.directadmin_password')
-        export LEXICON_DIRECTADMIN_PASSWORD
+    if bashio::config.has_value 'dns.dinahosting_auth_username'; then
+      LEXICON_DINAHOSTING_AUTH_USERNAME=$(bashio::config 'dinahosting_auth_username')
+      export LEXICON_DINAHOSTING_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.directadmin_username'; then
-        LEXICON_DIRECTADMIN_USERNAME=$(bashio::config 'dns.directadmin_username')
-        export LEXICON_DIRECTADMIN_USERNAME
+    if bashio::config.has_value 'dns.dinahosting_auth_password'; then
+      LEXICON_DINAHOSTING_AUTH_PASSWORD=$(bashio::config 'dinahosting_auth_password')
+      export LEXICON_DINAHOSTING_AUTH_PASSWORD
+    fi
+    if bashio::config.has_value 'dns.directadmin_auth_password'; then
+      LEXICON_DIRECTADMIN_AUTH_PASSWORD=$(bashio::config 'directadmin_auth_password')
+      export LEXICON_DIRECTADMIN_AUTH_PASSWORD
+    fi
+    if bashio::config.has_value 'dns.directadmin_auth_username'; then
+      LEXICON_DIRECTADMIN_AUTH_USERNAME=$(bashio::config 'directadmin_auth_username')
+      export LEXICON_DIRECTADMIN_AUTH_USERNAME
     fi
     if bashio::config.has_value 'dns.directadmin_endpoint'; then
-        LEXICON_DIRECTADMIN_ENDPOINT=$(bashio::config 'dns.directadmin_endpoint')
-        export LEXICON_DIRECTADMIN_ENDPOINT
+      LEXICON_DIRECTADMIN_ENDPOINT=$(bashio::config 'directadmin_endpoint')
+      export LEXICON_DIRECTADMIN_ENDPOINT
     fi
-    if bashio::config.has_value 'dns.dnsimple_token'; then
-        LEXICON_DNSIMPLE_TOKEN=$(bashio::config 'dns.dnsimple_token')
-        export LEXICON_DNSIMPLE_TOKEN
+    if bashio::config.has_value 'dns.dnsimple_auth_token'; then
+      LEXICON_DNSIMPLE_AUTH_TOKEN=$(bashio::config 'dnsimple_auth_token')
+      export LEXICON_DNSIMPLE_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.dnsimple_username'; then
-        LEXICON_DNSIMPLE_USERNAME=$(bashio::config 'dns.dnsimple_username')
-        export LEXICON_DNSIMPLE_USERNAME
+    if bashio::config.has_value 'dns.dnsimple_auth_username'; then
+      LEXICON_DNSIMPLE_AUTH_USERNAME=$(bashio::config 'dnsimple_auth_username')
+      export LEXICON_DNSIMPLE_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.dnsimple_password'; then
-        LEXICON_DNSIMPLE_PASSWORD=$(bashio::config 'dns.dnsimple_password')
-        export LEXICON_DNSIMPLE_PASSWORD
+    if bashio::config.has_value 'dns.dnsimple_auth_password'; then
+      LEXICON_DNSIMPLE_AUTH_PASSWORD=$(bashio::config 'dnsimple_auth_password')
+      export LEXICON_DNSIMPLE_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.dnsimple_2fa'; then
-        LEXICON_DNSIMPLE_2FA=$(bashio::config 'dns.dnsimple_2fa')
-        export LEXICON_DNSIMPLE_2FA
+    if bashio::config.has_value 'dns.dnsmadeeasy_auth_username'; then
+      LEXICON_DNSMADEEASY_AUTH_USERNAME=$(bashio::config 'dnsmadeeasy_auth_username')
+      export LEXICON_DNSMADEEASY_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.dnsmadeeasy_username'; then
-        LEXICON_DNSMADEEASY_USERNAME=$(bashio::config 'dns.dnsmadeeasy_username')
-        export LEXICON_DNSMADEEASY_USERNAME
+    if bashio::config.has_value 'dns.dnsmadeeasy_auth_token'; then
+      LEXICON_DNSMADEEASY_AUTH_TOKEN=$(bashio::config 'dnsmadeeasy_auth_token')
+      export LEXICON_DNSMADEEASY_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.dnsmadeeasy_token'; then
-        LEXICON_DNSMADEEASY_TOKEN=$(bashio::config 'dns.dnsmadeeasy_token')
-        export LEXICON_DNSMADEEASY_TOKEN
+    if bashio::config.has_value 'dns.dnspark_auth_username'; then
+      LEXICON_DNSPARK_AUTH_USERNAME=$(bashio::config 'dnspark_auth_username')
+      export LEXICON_DNSPARK_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.dnspark_username'; then
-        LEXICON_DNSPARK_USERNAME=$(bashio::config 'dns.dnspark_username')
-        export LEXICON_DNSPARK_USERNAME
+    if bashio::config.has_value 'dns.dnspark_auth_token'; then
+      LEXICON_DNSPARK_AUTH_TOKEN=$(bashio::config 'dnspark_auth_token')
+      export LEXICON_DNSPARK_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.dnspark_token'; then
-        LEXICON_DNSPARK_TOKEN=$(bashio::config 'dns.dnspark_token')
-        export LEXICON_DNSPARK_TOKEN
+    if bashio::config.has_value 'dns.dnspod_auth_username'; then
+      LEXICON_DNSPOD_AUTH_USERNAME=$(bashio::config 'dnspod_auth_username')
+      export LEXICON_DNSPOD_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.dnspod_username'; then
-        LEXICON_DNSPOD_USERNAME=$(bashio::config 'dns.dnspod_username')
-        export LEXICON_DNSPOD_USERNAME
+    if bashio::config.has_value 'dns.dnspod_auth_token'; then
+      LEXICON_DNSPOD_AUTH_TOKEN=$(bashio::config 'dnspod_auth_token')
+      export LEXICON_DNSPOD_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.dnspod_token'; then
-        LEXICON_DNSPOD_TOKEN=$(bashio::config 'dns.dnspod_token')
-        export LEXICON_DNSPOD_TOKEN
+    if bashio::config.has_value 'dns.dreamhost_auth_token'; then
+      LEXICON_DREAMHOST_AUTH_TOKEN=$(bashio::config 'dreamhost_auth_token')
+      export LEXICON_DREAMHOST_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.dreamhost_token'; then
-        LEXICON_DREAMHOST_TOKEN=$(bashio::config 'dns.dreamhost_token')
-        export LEXICON_DREAMHOST_TOKEN
+    if bashio::config.has_value 'dns.dynu_auth_token'; then
+      LEXICON_DYNU_AUTH_TOKEN=$(bashio::config 'dynu_auth_token')
+      export LEXICON_DYNU_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.easydns_username'; then
-        LEXICON_EASYDNS_USERNAME=$(bashio::config 'dns.easydns_username')
-        export LEXICON_EASYDNS_USERNAME
+    if bashio::config.has_value 'dns.easydns_auth_username'; then
+      LEXICON_EASYDNS_AUTH_USERNAME=$(bashio::config 'easydns_auth_username')
+      export LEXICON_EASYDNS_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.easydns_token'; then
-        LEXICON_EASYDNS_TOKEN=$(bashio::config 'dns.easydns_token')
-        export LEXICON_EASYDNS_TOKEN
+    if bashio::config.has_value 'dns.easydns_auth_token'; then
+      LEXICON_EASYDNS_AUTH_TOKEN=$(bashio::config 'easydns_auth_token')
+      export LEXICON_EASYDNS_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.easyname_username'; then
-        LEXICON_EASYNAME_USERNAME=$(bashio::config 'dns.easyname_username')
-        export LEXICON_EASYNAME_USERNAME
+    if bashio::config.has_value 'dns.easyname_auth_username'; then
+      LEXICON_EASYNAME_AUTH_USERNAME=$(bashio::config 'easyname_auth_username')
+      export LEXICON_EASYNAME_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.easyname_password'; then
-        LEXICON_EASYNAME_PASSWORD=$(bashio::config 'dns.easyname_password')
-        export LEXICON_EASYNAME_PASSWORD
+    if bashio::config.has_value 'dns.easyname_auth_password'; then
+      LEXICON_EASYNAME_AUTH_PASSWORD=$(bashio::config 'easyname_auth_password')
+      export LEXICON_EASYNAME_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.exoscale_key'; then
-        LEXICON_EXOSCALE_KEY=$(bashio::config 'dns.exoscale_key')
-        export LEXICON_EXOSCALE_KEY
+    if bashio::config.has_value 'dns.euserv_auth_username'; then
+      LEXICON_EUSERV_AUTH_USERNAME=$(bashio::config 'euserv_auth_username')
+      export LEXICON_EUSERV_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.exoscale_secret'; then
-        LEXICON_EXOSCALE_SECRET=$(bashio::config 'dns.exoscale_secret')
-        export LEXICON_EXOSCALE_SECRET
+    if bashio::config.has_value 'dns.euserv_auth_password'; then
+      LEXICON_EUSERV_AUTH_PASSWORD=$(bashio::config 'euserv_auth_password')
+      export LEXICON_EUSERV_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.gandi_token'; then
-        LEXICON_GANDI_TOKEN=$(bashio::config 'dns.gandi_token')
-        export LEXICON_GANDI_TOKEN
+    if bashio::config.has_value 'dns.exoscale_auth_key'; then
+      LEXICON_EXOSCALE_AUTH_KEY=$(bashio::config 'exoscale_auth_key')
+      export LEXICON_EXOSCALE_AUTH_KEY
+    fi
+    if bashio::config.has_value 'dns.exoscale_auth_secret'; then
+      LEXICON_EXOSCALE_AUTH_SECRET=$(bashio::config 'exoscale_auth_secret')
+      export LEXICON_EXOSCALE_AUTH_SECRET
+    fi
+    if bashio::config.has_value 'dns.gandi_auth_token'; then
+      LEXICON_GANDI_AUTH_TOKEN=$(bashio::config 'gandi_auth_token')
+      export LEXICON_GANDI_AUTH_TOKEN
     fi
     if bashio::config.has_value 'dns.gandi_api_protocol'; then
-        LEXICON_GANDI_API_PROTOCOL=$(bashio::config 'dns.gandi_api_protocol')
-        export LEXICON_GANDI_API_PROTOCOL
+      LEXICON_GANDI_API_PROTOCOL=$(bashio::config 'gandi_api_protocol')
+      export LEXICON_GANDI_API_PROTOCOL
     fi
-    if bashio::config.has_value 'dns.gehirn_token'; then
-        LEXICON_GEHIRN_TOKEN=$(bashio::config 'dns.gehirn_token')
-        export LEXICON_GEHIRN_TOKEN
+    if bashio::config.has_value 'dns.gehirn_auth_token'; then
+      LEXICON_GEHIRN_AUTH_TOKEN=$(bashio::config 'gehirn_auth_token')
+      export LEXICON_GEHIRN_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.gehirn_secret'; then
-        LEXICON_GEHIRN_SECRET=$(bashio::config 'dns.gehirn_secret')
-        export LEXICON_GEHIRN_SECRET
+    if bashio::config.has_value 'dns.gehirn_auth_secret'; then
+      LEXICON_GEHIRN_AUTH_SECRET=$(bashio::config 'gehirn_auth_secret')
+      export LEXICON_GEHIRN_AUTH_SECRET
     fi
-    if bashio::config.has_value 'dns.glesys_username'; then
-        LEXICON_GLESYS_USERNAME=$(bashio::config 'dns.glesys_username')
-        export LEXICON_GLESYS_USERNAME
+    if bashio::config.has_value 'dns.glesys_auth_username'; then
+      LEXICON_GLESYS_AUTH_USERNAME=$(bashio::config 'glesys_auth_username')
+      export LEXICON_GLESYS_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.glesys_token'; then
-        LEXICON_GLESYS_TOKEN=$(bashio::config 'dns.glesys_token')
-        export LEXICON_GLESYS_TOKEN
+    if bashio::config.has_value 'dns.glesys_auth_token'; then
+      LEXICON_GLESYS_AUTH_TOKEN=$(bashio::config 'glesys_auth_token')
+      export LEXICON_GLESYS_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.godaddy_key'; then
-        LEXICON_GODADDY_KEY=$(bashio::config 'dns.godaddy_key')
-        export LEXICON_GODADDY_KEY
+    if bashio::config.has_value 'dns.godaddy_auth_key'; then
+      LEXICON_GODADDY_AUTH_KEY=$(bashio::config 'godaddy_auth_key')
+      export LEXICON_GODADDY_AUTH_KEY
     fi
-    if bashio::config.has_value 'dns.godaddy_secret'; then
-        LEXICON_GODADDY_SECRET=$(bashio::config 'dns.godaddy_secret')
-        export LEXICON_GODADDY_SECRET
+    if bashio::config.has_value 'dns.godaddy_auth_secret'; then
+      LEXICON_GODADDY_AUTH_SECRET=$(bashio::config 'godaddy_auth_secret')
+      export LEXICON_GODADDY_AUTH_SECRET
     fi
-    if bashio::config.has_value 'dns.googleclouddns_service_account_info'; then
-        LEXICON_GOOGLECLOUDDNS_SERVICE_ACCOUNT_INFO=$(bashio::config 'dns.googleclouddns_service_account_info')
-        export LEXICON_GOOGLECLOUDDNS_SERVICE_ACCOUNT_INFO
+    if bashio::config.has_value 'dns.googleclouddns_auth_service_account_info'; then
+      LEXICON_GOOGLECLOUDDNS_AUTH_SERVICE_ACCOUNT_INFO=$(bashio::config 'googleclouddns_auth_service_account_info')
+      export LEXICON_GOOGLECLOUDDNS_AUTH_SERVICE_ACCOUNT_INFO
     fi
-    if bashio::config.has_value 'dns.gratisdns_username'; then
-        LEXICON_GRATISDNS_USERNAME=$(bashio::config 'dns.gratisdns_username')
-        export LEXICON_GRATISDNS_USERNAME
+    if bashio::config.has_value 'dns.googleclouddns_specify'; then
+      LEXICON_GOOGLECLOUDDNS_SPECIFY=$(bashio::config 'googleclouddns_specify')
+      export LEXICON_GOOGLECLOUDDNS_SPECIFY
     fi
-    if bashio::config.has_value 'dns.gratisdns_password'; then
-        LEXICON_GRATISDNS_PASSWORD=$(bashio::config 'dns.gratisdns_password')
-        export LEXICON_GRATISDNS_PASSWORD
+    if bashio::config.has_value 'dns.gransy_auth_username'; then
+      LEXICON_GRANSY_AUTH_USERNAME=$(bashio::config 'gransy_auth_username')
+      export LEXICON_GRANSY_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.henet_username'; then
-        LEXICON_HENET_USERNAME=$(bashio::config 'dns.henet_username')
-        export LEXICON_HENET_USERNAME
+    if bashio::config.has_value 'dns.gransy_auth_password'; then
+      LEXICON_GRANSY_AUTH_PASSWORD=$(bashio::config 'gransy_auth_password')
+      export LEXICON_GRANSY_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.henet_password'; then
-        LEXICON_HENET_PASSWORD=$(bashio::config 'dns.henet_password')
-        export LEXICON_HENET_PASSWORD
+    if bashio::config.has_value 'dns.gratisdns_auth_username'; then
+      LEXICON_GRATISDNS_AUTH_USERNAME=$(bashio::config 'gratisdns_auth_username')
+      export LEXICON_GRATISDNS_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.hetzner_account'; then
-        LEXICON_HETZNER_ACCOUNT=$(bashio::config 'dns.hetzner_account')
-        export LEXICON_HETZNER_ACCOUNT
+    if bashio::config.has_value 'dns.gratisdns_auth_password'; then
+      LEXICON_GRATISDNS_AUTH_PASSWORD=$(bashio::config 'gratisdns_auth_password')
+      export LEXICON_GRATISDNS_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.hetzner_username'; then
-        LEXICON_HETZNER_USERNAME=$(bashio::config 'dns.hetzner_username')
-        export LEXICON_HETZNER_USERNAME
+    if bashio::config.has_value 'dns.henet_auth_username'; then
+      LEXICON_HENET_AUTH_USERNAME=$(bashio::config 'henet_auth_username')
+      export LEXICON_HENET_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.hetzner_password'; then
-        LEXICON_HETZNER_PASSWORD=$(bashio::config 'dns.hetzner_password')
-        export LEXICON_HETZNER_PASSWORD
+    if bashio::config.has_value 'dns.henet_auth_password'; then
+      LEXICON_HENET_AUTH_PASSWORD=$(bashio::config 'henet_auth_password')
+      export LEXICON_HENET_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.hetzner_latency'; then
-        LEXICON_HETZNER_LATENCY=$(bashio::config 'dns.hetzner_latency')
-        export LEXICON_HETZNER_LATENCY
+    if bashio::config.has_value 'dns.hetzner_auth_token'; then
+      LEXICON_HETZNER_AUTH_TOKEN=$(bashio::config 'hetzner_auth_token')
+      export LEXICON_HETZNER_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.hostingde_token'; then
-        LEXICON_HOSTINGDE_TOKEN=$(bashio::config 'dns.hostingde_token')
-        export LEXICON_HOSTINGDE_TOKEN
+    if bashio::config.has_value 'dns.hostingde_auth_token'; then
+      LEXICON_HOSTINGDE_AUTH_TOKEN=$(bashio::config 'hostingde_auth_token')
+      export LEXICON_HOSTINGDE_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.hover_username'; then
-        LEXICON_HOVER_USERNAME=$(bashio::config 'dns.hover_username')
-        export LEXICON_HOVER_USERNAME
+    if bashio::config.has_value 'dns.hover_auth_username'; then
+      LEXICON_HOVER_AUTH_USERNAME=$(bashio::config 'hover_auth_username')
+      export LEXICON_HOVER_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.hover_password'; then
-        LEXICON_HOVER_PASSWORD=$(bashio::config 'dns.hover_password')
-        export LEXICON_HOVER_PASSWORD
+    if bashio::config.has_value 'dns.hover_auth_password'; then
+      LEXICON_HOVER_AUTH_PASSWORD=$(bashio::config 'hover_auth_password')
+      export LEXICON_HOVER_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.infoblox_user'; then
-        LEXICON_INFOBLOX_USER=$(bashio::config 'dns.infoblox_user')
-        export LEXICON_INFOBLOX_USER
+    if bashio::config.has_value 'dns.infoblox_auth_user'; then
+      LEXICON_INFOBLOX_AUTH_USER=$(bashio::config 'infoblox_auth_user')
+      export LEXICON_INFOBLOX_AUTH_USER
     fi
-    if bashio::config.has_value 'dns.infoblox_psw'; then
-        LEXICON_INFOBLOX_PSW=$(bashio::config 'dns.infoblox_psw')
-        export LEXICON_INFOBLOX_PSW
+    if bashio::config.has_value 'dns.infoblox_auth_psw'; then
+      LEXICON_INFOBLOX_AUTH_PSW=$(bashio::config 'infoblox_auth_psw')
+      export LEXICON_INFOBLOX_AUTH_PSW
     fi
     if bashio::config.has_value 'dns.infoblox_ib_view'; then
-        LEXICON_INFOBLOX_IB_VIEW=$(bashio::config 'dns.infoblox_ib_view')
-        export LEXICON_INFOBLOX_IB_VIEW
+      LEXICON_INFOBLOX_IB_VIEW=$(bashio::config 'infoblox_ib_view')
+      export LEXICON_INFOBLOX_IB_VIEW
     fi
     if bashio::config.has_value 'dns.infoblox_ib_host'; then
-        LEXICON_INFOBLOX_IB_HOST=$(bashio::config 'dns.infoblox_ib_host')
-        export LEXICON_INFOBLOX_IB_HOST
+      LEXICON_INFOBLOX_IB_HOST=$(bashio::config 'infoblox_ib_host')
+      export LEXICON_INFOBLOX_IB_HOST
     fi
-    if bashio::config.has_value 'dns.internetbs_key'; then
-        LEXICON_INTERNETBS_KEY=$(bashio::config 'dns.internetbs_key')
-        export LEXICON_INTERNETBS_KEY
+    if bashio::config.has_value 'dns.infomaniak_auth_token'; then
+      LEXICON_INFOMANIAK_AUTH_TOKEN=$(bashio::config 'infomaniak_auth_token')
+      export LEXICON_INFOMANIAK_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.internetbs_password'; then
-        LEXICON_INTERNETBS_PASSWORD=$(bashio::config 'dns.internetbs_password')
-        export LEXICON_INTERNETBS_PASSWORD
+    if bashio::config.has_value 'dns.internetbs_auth_key'; then
+      LEXICON_INTERNETBS_AUTH_KEY=$(bashio::config 'internetbs_auth_key')
+      export LEXICON_INTERNETBS_AUTH_KEY
     fi
-    if bashio::config.has_value 'dns.inwx_username'; then
-        LEXICON_INWX_USERNAME=$(bashio::config 'dns.inwx_username')
-        export LEXICON_INWX_USERNAME
+    if bashio::config.has_value 'dns.internetbs_auth_password'; then
+      LEXICON_INTERNETBS_AUTH_PASSWORD=$(bashio::config 'internetbs_auth_password')
+      export LEXICON_INTERNETBS_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.inwx_password'; then
-        LEXICON_INWX_PASSWORD=$(bashio::config 'dns.inwx_password')
-        export LEXICON_INWX_PASSWORD
+    if bashio::config.has_value 'dns.inwx_auth_username'; then
+      LEXICON_INWX_AUTH_USERNAME=$(bashio::config 'inwx_auth_username')
+      export LEXICON_INWX_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.linode_token'; then
-        LEXICON_LINODE_TOKEN=$(bashio::config 'dns.linode_token')
-        export LEXICON_LINODE_TOKEN
+    if bashio::config.has_value 'dns.inwx_auth_password'; then
+      LEXICON_INWX_AUTH_PASSWORD=$(bashio::config 'inwx_auth_password')
+      export LEXICON_INWX_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.linode4_token'; then
-        LEXICON_LINODE4_TOKEN=$(bashio::config 'dns.linode4_token')
-        export LEXICON_LINODE4_TOKEN
+    if bashio::config.has_value 'dns.joker_auth_token'; then
+      LEXICON_JOKER_AUTH_TOKEN=$(bashio::config 'joker_auth_token')
+      export LEXICON_JOKER_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.linode_auth_token'; then
+      LEXICON_LINODE_AUTH_TOKEN=$(bashio::config 'linode_auth_token')
+      export LEXICON_LINODE_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.linode4_auth_token'; then
+      LEXICON_LINODE4_AUTH_TOKEN=$(bashio::config 'linode4_auth_token')
+      export LEXICON_LINODE4_AUTH_TOKEN
     fi
     if bashio::config.has_value 'dns.localzone_filename'; then
-        LEXICON_LOCALZONE_FILENAME=$(bashio::config 'dns.localzone_filename')
-        export LEXICON_LOCALZONE_FILENAME
+      LEXICON_LOCALZONE_FILENAME=$(bashio::config 'localzone_filename')
+      export LEXICON_LOCALZONE_FILENAME
     fi
-    if bashio::config.has_value 'dns.luadns_username'; then
-        LEXICON_LUADNS_USERNAME=$(bashio::config 'dns.luadns_username')
-        export LEXICON_LUADNS_USERNAME
+    if bashio::config.has_value 'dns.luadns_auth_username'; then
+      LEXICON_LUADNS_AUTH_USERNAME=$(bashio::config 'luadns_auth_username')
+      export LEXICON_LUADNS_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.luadns_token'; then
-        LEXICON_LUADNS_TOKEN=$(bashio::config 'dns.luadns_token')
-        export LEXICON_LUADNS_TOKEN
+    if bashio::config.has_value 'dns.luadns_auth_token'; then
+      LEXICON_LUADNS_AUTH_TOKEN=$(bashio::config 'luadns_auth_token')
+      export LEXICON_LUADNS_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.memset_token'; then
-        LEXICON_MEMSET_TOKEN=$(bashio::config 'dns.memset_token')
-        export LEXICON_MEMSET_TOKEN
+    if bashio::config.has_value 'dns.memset_auth_token'; then
+      LEXICON_MEMSET_AUTH_TOKEN=$(bashio::config 'memset_auth_token')
+      export LEXICON_MEMSET_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.namecheap_token'; then
-        LEXICON_NAMECHEAP_TOKEN=$(bashio::config 'dns.namecheap_token')
-        export LEXICON_NAMECHEAP_TOKEN
+    if bashio::config.has_value 'dns.misaka_auth_token'; then
+      LEXICON_MISAKA_AUTH_TOKEN=$(bashio::config 'misaka_auth_token')
+      export LEXICON_MISAKA_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.namecheap_username'; then
-        LEXICON_NAMECHEAP_USERNAME=$(bashio::config 'dns.namecheap_username')
-        export LEXICON_NAMECHEAP_USERNAME
+    if bashio::config.has_value 'dns.mythicbeasts_auth_username'; then
+      LEXICON_MYTHICBEASTS_AUTH_USERNAME=$(bashio::config 'mythicbeasts_auth_username')
+      export LEXICON_MYTHICBEASTS_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.namecheap_client_ip'; then
-        LEXICON_NAMECHEAP_CLIENT_IP=$(bashio::config 'dns.namecheap_client_ip')
-        export LEXICON_NAMECHEAP_CLIENT_IP
+    if bashio::config.has_value 'dns.mythicbeasts_auth_password'; then
+      LEXICON_MYTHICBEASTS_AUTH_PASSWORD=$(bashio::config 'mythicbeasts_auth_password')
+      export LEXICON_MYTHICBEASTS_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.namesilo_token'; then
-        LEXICON_NAMESILO_TOKEN=$(bashio::config 'dns.namesilo_token')
-        export LEXICON_NAMESILO_TOKEN
+    if bashio::config.has_value 'dns.mythicbeasts_auth_token'; then
+      LEXICON_MYTHICBEASTS_AUTH_TOKEN=$(bashio::config 'mythicbeasts_auth_token')
+      export LEXICON_MYTHICBEASTS_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.netcup_customer_id'; then
-        LEXICON_NETCUP_CUSTOMER_ID=$(bashio::config 'dns.netcup_customer_id')
-        export LEXICON_NETCUP_CUSTOMER_ID
+    if bashio::config.has_value 'dns.namecheap_auth_token'; then
+      LEXICON_NAMECHEAP_AUTH_TOKEN=$(bashio::config 'namecheap_auth_token')
+      export LEXICON_NAMECHEAP_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.netcup_api_key'; then
-        LEXICON_NETCUP_API_KEY=$(bashio::config 'dns.netcup_api_key')
-        export LEXICON_NETCUP_API_KEY
+    if bashio::config.has_value 'dns.namecheap_auth_username'; then
+      LEXICON_NAMECHEAP_AUTH_USERNAME=$(bashio::config 'namecheap_auth_username')
+      export LEXICON_NAMECHEAP_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.netcup_api_password'; then
-        LEXICON_NETCUP_API_PASSWORD=$(bashio::config 'dns.netcup_api_password')
-        export LEXICON_NETCUP_API_PASSWORD
+    if bashio::config.has_value 'dns.namecheap_auth_client_ip'; then
+      LEXICON_NAMECHEAP_AUTH_CLIENT_IP=$(bashio::config 'namecheap_auth_client_ip')
+      export LEXICON_NAMECHEAP_AUTH_CLIENT_IP
     fi
-    if bashio::config.has_value 'dns.nfsn_username'; then
-        LEXICON_NFSN_USERNAME=$(bashio::config 'dns.nfsn_username')
-        export LEXICON_NFSN_USERNAME
+    if bashio::config.has_value 'dns.namecheap_auth_sandbox'; then
+      LEXICON_NAMECHEAP_AUTH_SANDBOX=$(bashio::config 'namecheap_auth_sandbox')
+      export LEXICON_NAMECHEAP_AUTH_SANDBOX
     fi
-    if bashio::config.has_value 'dns.nfsn_token'; then
-        LEXICON_NFSN_TOKEN=$(bashio::config 'dns.nfsn_token')
-        export LEXICON_NFSN_TOKEN
+    if bashio::config.has_value 'dns.namecom_auth_username'; then
+      LEXICON_NAMECOM_AUTH_USERNAME=$(bashio::config 'namecom_auth_username')
+      export LEXICON_NAMECOM_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.nsone_token'; then
-        LEXICON_NSONE_TOKEN=$(bashio::config 'dns.nsone_token')
-        export LEXICON_NSONE_TOKEN
+    if bashio::config.has_value 'dns.namecom_auth_token'; then
+      LEXICON_NAMECOM_AUTH_TOKEN=$(bashio::config 'namecom_auth_token')
+      export LEXICON_NAMECOM_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.onapp_username'; then
-        LEXICON_ONAPP_USERNAME=$(bashio::config 'dns.onapp_username')
-        export LEXICON_ONAPP_USERNAME
+    if bashio::config.has_value 'dns.namesilo_auth_token'; then
+      LEXICON_NAMESILO_AUTH_TOKEN=$(bashio::config 'namesilo_auth_token')
+      export LEXICON_NAMESILO_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.onapp_token'; then
-        LEXICON_ONAPP_TOKEN=$(bashio::config 'dns.onapp_token')
-        export LEXICON_ONAPP_TOKEN
+    if bashio::config.has_value 'dns.netcup_auth_customer_id'; then
+      LEXICON_NETCUP_AUTH_CUSTOMER_ID=$(bashio::config 'netcup_auth_customer_id')
+      export LEXICON_NETCUP_AUTH_CUSTOMER_ID
     fi
-    if bashio::config.has_value 'dns.onapp_server'; then
-        LEXICON_ONAPP_SERVER=$(bashio::config 'dns.onapp_server')
-        export LEXICON_ONAPP_SERVER
+    if bashio::config.has_value 'dns.netcup_auth_api_key'; then
+      LEXICON_NETCUP_AUTH_API_KEY=$(bashio::config 'netcup_auth_api_key')
+      export LEXICON_NETCUP_AUTH_API_KEY
     fi
-    if bashio::config.has_value 'dns.online_token'; then
-        LEXICON_ONLINE_TOKEN=$(bashio::config 'dns.online_token')
-        export LEXICON_ONLINE_TOKEN
+    if bashio::config.has_value 'dns.netcup_auth_api_password'; then
+      LEXICON_NETCUP_AUTH_API_PASSWORD=$(bashio::config 'netcup_auth_api_password')
+      export LEXICON_NETCUP_AUTH_API_PASSWORD
     fi
-    if bashio::config.has_value 'dns.ovh_application_key'; then
-        LEXICON_OVH_APPLICATION_KEY=$(bashio::config 'dns.ovh_application_key')
-        export LEXICON_OVH_APPLICATION_KEY
+    if bashio::config.has_value 'dns.nfsn_auth_username'; then
+      LEXICON_NFSN_AUTH_USERNAME=$(bashio::config 'nfsn_auth_username')
+      export LEXICON_NFSN_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.ovh_application_secret'; then
-        LEXICON_OVH_APPLICATION_SECRET=$(bashio::config 'dns.ovh_application_secret')
-        export LEXICON_OVH_APPLICATION_SECRET
+    if bashio::config.has_value 'dns.nfsn_auth_token'; then
+      LEXICON_NFSN_AUTH_TOKEN=$(bashio::config 'nfsn_auth_token')
+      export LEXICON_NFSN_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.ovh_consumer_key'; then
-        LEXICON_OVH_CONSUMER_KEY=$(bashio::config 'dns.ovh_consumer_key')
-        export LEXICON_OVH_CONSUMER_KEY
+    if bashio::config.has_value 'dns.njalla_auth_token'; then
+      LEXICON_NJALLA_AUTH_TOKEN=$(bashio::config 'njalla_auth_token')
+      export LEXICON_NJALLA_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.plesk_username'; then
-        LEXICON_PLESK_USERNAME=$(bashio::config 'dns.plesk_username')
-        export LEXICON_PLESK_USERNAME
+    if bashio::config.has_value 'dns.nsone_auth_token'; then
+      LEXICON_NSONE_AUTH_TOKEN=$(bashio::config 'nsone_auth_token')
+      export LEXICON_NSONE_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.plesk_password'; then
-        LEXICON_PLESK_PASSWORD=$(bashio::config 'dns.plesk_password')
-        export LEXICON_PLESK_PASSWORD
+    if bashio::config.has_value 'dns.oci_auth_config_file'; then
+      LEXICON_OCI_AUTH_CONFIG_FILE=$(bashio::config 'oci_auth_config_file')
+      export LEXICON_OCI_AUTH_CONFIG_FILE
+    fi
+    if bashio::config.has_value 'dns.oci_auth_profile'; then
+      LEXICON_OCI_AUTH_PROFILE=$(bashio::config 'oci_auth_profile')
+      export LEXICON_OCI_AUTH_PROFILE
+    fi
+    if bashio::config.has_value 'dns.oci_auth_user'; then
+      LEXICON_OCI_AUTH_USER=$(bashio::config 'oci_auth_user')
+      export LEXICON_OCI_AUTH_USER
+    fi
+    if bashio::config.has_value 'dns.oci_auth_tenancy'; then
+      LEXICON_OCI_AUTH_TENANCY=$(bashio::config 'oci_auth_tenancy')
+      export LEXICON_OCI_AUTH_TENANCY
+    fi
+    if bashio::config.has_value 'dns.oci_auth_fingerprint'; then
+      LEXICON_OCI_AUTH_FINGERPRINT=$(bashio::config 'oci_auth_fingerprint')
+      export LEXICON_OCI_AUTH_FINGERPRINT
+    fi
+    if bashio::config.has_value 'dns.oci_auth_key_content'; then
+      LEXICON_OCI_AUTH_KEY_CONTENT=$(bashio::config 'oci_auth_key_content')
+      export LEXICON_OCI_AUTH_KEY_CONTENT
+    fi
+    if bashio::config.has_value 'dns.oci_auth_key_file'; then
+      LEXICON_OCI_AUTH_KEY_FILE=$(bashio::config 'oci_auth_key_file')
+      export LEXICON_OCI_AUTH_KEY_FILE
+    fi
+    if bashio::config.has_value 'dns.oci_auth_pass_phrase'; then
+      LEXICON_OCI_AUTH_PASS_PHRASE=$(bashio::config 'oci_auth_pass_phrase')
+      export LEXICON_OCI_AUTH_PASS_PHRASE
+    fi
+    if bashio::config.has_value 'dns.oci_auth_region'; then
+      LEXICON_OCI_AUTH_REGION=$(bashio::config 'oci_auth_region')
+      export LEXICON_OCI_AUTH_REGION
+    fi
+    if bashio::config.has_value 'dns.oci_auth_type'; then
+      LEXICON_OCI_AUTH_TYPE=$(bashio::config 'oci_auth_type')
+      export LEXICON_OCI_AUTH_TYPE
+    fi
+    if bashio::config.has_value 'dns.onapp_auth_username'; then
+      LEXICON_ONAPP_AUTH_USERNAME=$(bashio::config 'onapp_auth_username')
+      export LEXICON_ONAPP_AUTH_USERNAME
+    fi
+    if bashio::config.has_value 'dns.onapp_auth_token'; then
+      LEXICON_ONAPP_AUTH_TOKEN=$(bashio::config 'onapp_auth_token')
+      export LEXICON_ONAPP_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.onapp_auth_server'; then
+      LEXICON_ONAPP_AUTH_SERVER=$(bashio::config 'onapp_auth_server')
+      export LEXICON_ONAPP_AUTH_SERVER
+    fi
+    if bashio::config.has_value 'dns.online_auth_token'; then
+      LEXICON_ONLINE_AUTH_TOKEN=$(bashio::config 'online_auth_token')
+      export LEXICON_ONLINE_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.ovh_auth_entrypoint'; then
+      LEXICON_OVH_AUTH_ENTRYPOINT=$(bashio::config 'ovh_auth_entrypoint')
+      export LEXICON_OVH_AUTH_ENTRYPOINT
+    fi
+    if bashio::config.has_value 'dns.ovh_auth_application_key'; then
+      LEXICON_OVH_AUTH_APPLICATION_KEY=$(bashio::config 'ovh_auth_application_key')
+      export LEXICON_OVH_AUTH_APPLICATION_KEY
+    fi
+    if bashio::config.has_value 'dns.ovh_auth_application_secret'; then
+      LEXICON_OVH_AUTH_APPLICATION_SECRET=$(bashio::config 'ovh_auth_application_secret')
+      export LEXICON_OVH_AUTH_APPLICATION_SECRET
+    fi
+    if bashio::config.has_value 'dns.ovh_auth_consumer_key'; then
+      LEXICON_OVH_AUTH_CONSUMER_KEY=$(bashio::config 'ovh_auth_consumer_key')
+      export LEXICON_OVH_AUTH_CONSUMER_KEY
+    fi
+    if bashio::config.has_value 'dns.plesk_auth_username'; then
+      LEXICON_PLESK_AUTH_USERNAME=$(bashio::config 'plesk_auth_username')
+      export LEXICON_PLESK_AUTH_USERNAME
+    fi
+    if bashio::config.has_value 'dns.plesk_auth_password'; then
+      LEXICON_PLESK_AUTH_PASSWORD=$(bashio::config 'plesk_auth_password')
+      export LEXICON_PLESK_AUTH_PASSWORD
     fi
     if bashio::config.has_value 'dns.plesk_plesk_server'; then
-        LEXICON_PLESK_PLESK_SERVER=$(bashio::config 'dns.plesk_plesk_server')
-        export LEXICON_PLESK_PLESK_SERVER
+      LEXICON_PLESK_PLESK_SERVER=$(bashio::config 'plesk_plesk_server')
+      export LEXICON_PLESK_PLESK_SERVER
     fi
-    if bashio::config.has_value 'dns.pointhq_username'; then
-        LEXICON_POINTHQ_USERNAME=$(bashio::config 'dns.pointhq_username')
-        export LEXICON_POINTHQ_USERNAME
+    if bashio::config.has_value 'dns.pointhq_auth_username'; then
+      LEXICON_POINTHQ_AUTH_USERNAME=$(bashio::config 'pointhq_auth_username')
+      export LEXICON_POINTHQ_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.pointhq_token'; then
-        LEXICON_POINTHQ_TOKEN=$(bashio::config 'dns.pointhq_token')
-        export LEXICON_POINTHQ_TOKEN
+    if bashio::config.has_value 'dns.pointhq_auth_token'; then
+      LEXICON_POINTHQ_AUTH_TOKEN=$(bashio::config 'pointhq_auth_token')
+      export LEXICON_POINTHQ_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.powerdns_token'; then
-        LEXICON_POWERDNS_TOKEN=$(bashio::config 'dns.powerdns_token')
-        export LEXICON_POWERDNS_TOKEN
+    if bashio::config.has_value 'dns.porkbun_auth_key'; then
+      LEXICON_PORKBUN_AUTH_KEY=$(bashio::config 'porkbun_auth_key')
+      export LEXICON_PORKBUN_AUTH_KEY
+    fi
+    if bashio::config.has_value 'dns.porkbun_auth_secret'; then
+      LEXICON_PORKBUN_AUTH_SECRET=$(bashio::config 'porkbun_auth_secret')
+      export LEXICON_PORKBUN_AUTH_SECRET
+    fi
+    if bashio::config.has_value 'dns.powerdns_auth_token'; then
+      LEXICON_POWERDNS_AUTH_TOKEN=$(bashio::config 'powerdns_auth_token')
+      export LEXICON_POWERDNS_AUTH_TOKEN
     fi
     if bashio::config.has_value 'dns.powerdns_pdns_server'; then
-        LEXICON_POWERDNS_PDNS_SERVER=$(bashio::config 'dns.powerdns_pdns_server')
-        export LEXICON_POWERDNS_PDNS_SERVER
+      LEXICON_POWERDNS_PDNS_SERVER=$(bashio::config 'powerdns_pdns_server')
+      export LEXICON_POWERDNS_PDNS_SERVER
     fi
     if bashio::config.has_value 'dns.powerdns_pdns_server_id'; then
-        LEXICON_POWERDNS_PDNS_SERVER_ID=$(bashio::config 'dns.powerdns_pdns_server_id')
-        export LEXICON_POWERDNS_PDNS_SERVER_ID
+      LEXICON_POWERDNS_PDNS_SERVER_ID=$(bashio::config 'powerdns_pdns_server_id')
+      export LEXICON_POWERDNS_PDNS_SERVER_ID
     fi
     if bashio::config.has_value 'dns.powerdns_pdns_disable_notify'; then
-        LEXICON_POWERDNS_PDNS_DISABLE_NOTIFY=$(bashio::config 'dns.powerdns_pdns_disable_notify')
-        export LEXICON_POWERDNS_PDNS_DISABLE_NOTIFY
+      LEXICON_POWERDNS_PDNS_DISABLE_NOTIFY=$(bashio::config 'powerdns_pdns_disable_notify')
+      export LEXICON_POWERDNS_PDNS_DISABLE_NOTIFY
     fi
-    if bashio::config.has_value 'dns.rackspace_account'; then
-        LEXICON_RACKSPACE_ACCOUNT=$(bashio::config 'dns.rackspace_account')
-        export LEXICON_RACKSPACE_ACCOUNT
+    if bashio::config.has_value 'dns.rackspace_auth_account'; then
+      LEXICON_RACKSPACE_AUTH_ACCOUNT=$(bashio::config 'rackspace_auth_account')
+      export LEXICON_RACKSPACE_AUTH_ACCOUNT
     fi
-    if bashio::config.has_value 'dns.rackspace_username'; then
-        LEXICON_RACKSPACE_USERNAME=$(bashio::config 'dns.rackspace_username')
-        export LEXICON_RACKSPACE_USERNAME
+    if bashio::config.has_value 'dns.rackspace_auth_username'; then
+      LEXICON_RACKSPACE_AUTH_USERNAME=$(bashio::config 'rackspace_auth_username')
+      export LEXICON_RACKSPACE_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.rackspace_api_key'; then
-        LEXICON_RACKSPACE_API_KEY=$(bashio::config 'dns.rackspace_api_key')
-        export LEXICON_RACKSPACE_API_KEY
+    if bashio::config.has_value 'dns.rackspace_auth_api_key'; then
+      LEXICON_RACKSPACE_AUTH_API_KEY=$(bashio::config 'rackspace_auth_api_key')
+      export LEXICON_RACKSPACE_AUTH_API_KEY
     fi
-    if bashio::config.has_value 'dns.rackspace_token'; then
-        LEXICON_RACKSPACE_TOKEN=$(bashio::config 'dns.rackspace_token')
-        export LEXICON_RACKSPACE_TOKEN
+    if bashio::config.has_value 'dns.rackspace_auth_token'; then
+      LEXICON_RACKSPACE_AUTH_TOKEN=$(bashio::config 'rackspace_auth_token')
+      export LEXICON_RACKSPACE_AUTH_TOKEN
     fi
     if bashio::config.has_value 'dns.rackspace_sleep_time'; then
-        LEXICON_RACKSPACE_SLEEP_TIME=$(bashio::config 'dns.rackspace_sleep_time')
-        export LEXICON_RACKSPACE_SLEEP_TIME
+      LEXICON_RACKSPACE_SLEEP_TIME=$(bashio::config 'rackspace_sleep_time')
+      export LEXICON_RACKSPACE_SLEEP_TIME
     fi
-    if bashio::config.has_value 'dns.rage4_username'; then
-        LEXICON_RAGE4_USERNAME=$(bashio::config 'dns.rage4_username')
-        export LEXICON_RAGE4_USERNAME
+    if bashio::config.has_value 'dns.rage4_auth_username'; then
+      LEXICON_RAGE4_AUTH_USERNAME=$(bashio::config 'rage4_auth_username')
+      export LEXICON_RAGE4_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.rage4_token'; then
-        LEXICON_RAGE4_TOKEN=$(bashio::config 'dns.rage4_token')
-        export LEXICON_RAGE4_TOKEN
+    if bashio::config.has_value 'dns.rage4_auth_token'; then
+      LEXICON_RAGE4_AUTH_TOKEN=$(bashio::config 'rage4_auth_token')
+      export LEXICON_RAGE4_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.rcodezero_token'; then
-        LEXICON_RCODEZERO_TOKEN=$(bashio::config 'dns.rcodezero_token')
-        export LEXICON_RCODEZERO_TOKEN
+    if bashio::config.has_value 'dns.rcodezero_auth_token'; then
+      LEXICON_RCODEZERO_AUTH_TOKEN=$(bashio::config 'rcodezero_auth_token')
+      export LEXICON_RCODEZERO_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.route53_access_key'; then
-        LEXICON_ROUTE53_ACCESS_KEY=$(bashio::config 'dns.route53_access_key')
-        export LEXICON_ROUTE53_ACCESS_KEY
+    if bashio::config.has_value 'dns.route53_auth_access_key'; then
+      LEXICON_ROUTE53_AUTH_ACCESS_KEY=$(bashio::config 'route53_auth_access_key')
+      export LEXICON_ROUTE53_AUTH_ACCESS_KEY
     fi
-    if bashio::config.has_value 'dns.route53_access_secret'; then
-        LEXICON_ROUTE53_ACCESS_SECRET=$(bashio::config 'dns.route53_access_secret')
-        export LEXICON_ROUTE53_ACCESS_SECRET
+    if bashio::config.has_value 'dns.route53_auth_access_secret'; then
+      LEXICON_ROUTE53_AUTH_ACCESS_SECRET=$(bashio::config 'route53_auth_access_secret')
+      export LEXICON_ROUTE53_AUTH_ACCESS_SECRET
     fi
     if bashio::config.has_value 'dns.route53_private_zone'; then
-        LEXICON_ROUTE53_PRIVATE_ZONE=$(bashio::config 'dns.route53_private_zone')
-        export LEXICON_ROUTE53_PRIVATE_ZONE
+      LEXICON_ROUTE53_PRIVATE_ZONE=$(bashio::config 'route53_private_zone')
+      export LEXICON_ROUTE53_PRIVATE_ZONE
     fi
-    if bashio::config.has_value 'dns.route53_username'; then
-        LEXICON_ROUTE53_USERNAME=$(bashio::config 'dns.route53_username')
-        export LEXICON_ROUTE53_USERNAME
+    if bashio::config.has_value 'dns.route53_zone_id'; then
+      LEXICON_ROUTE53_ZONE_ID=$(bashio::config 'route53_zone_id')
+      export LEXICON_ROUTE53_ZONE_ID
     fi
-    if bashio::config.has_value 'dns.route53_token'; then
-        LEXICON_ROUTE53_TOKEN=$(bashio::config 'dns.route53_token')
-        export LEXICON_ROUTE53_TOKEN
+    if bashio::config.has_value 'dns.route53_auth_username'; then
+      LEXICON_ROUTE53_AUTH_USERNAME=$(bashio::config 'route53_auth_username')
+      export LEXICON_ROUTE53_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.safedns_token'; then
-        LEXICON_SAFEDNS_TOKEN=$(bashio::config 'dns.safedns_token')
-        export LEXICON_SAFEDNS_TOKEN
+    if bashio::config.has_value 'dns.route53_auth_token'; then
+      LEXICON_ROUTE53_AUTH_TOKEN=$(bashio::config 'route53_auth_token')
+      export LEXICON_ROUTE53_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.sakuracloud_token'; then
-        LEXICON_SAKURACLOUD_TOKEN=$(bashio::config 'dns.sakuracloud_token')
-        export LEXICON_SAKURACLOUD_TOKEN
+    if bashio::config.has_value 'dns.safedns_auth_token'; then
+      LEXICON_SAFEDNS_AUTH_TOKEN=$(bashio::config 'safedns_auth_token')
+      export LEXICON_SAFEDNS_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.sakuracloud_secret'; then
-        LEXICON_SAKURACLOUD_SECRET=$(bashio::config 'dns.sakuracloud_secret')
-        export LEXICON_SAKURACLOUD_SECRET
+    if bashio::config.has_value 'dns.sakuracloud_auth_token'; then
+      LEXICON_SAKURACLOUD_AUTH_TOKEN=$(bashio::config 'sakuracloud_auth_token')
+      export LEXICON_SAKURACLOUD_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.softlayer_username'; then
-        LEXICON_SOFTLAYER_USERNAME=$(bashio::config 'dns.softlayer_username')
-        export LEXICON_SOFTLAYER_USERNAME
+    if bashio::config.has_value 'dns.sakuracloud_auth_secret'; then
+      LEXICON_SAKURACLOUD_AUTH_SECRET=$(bashio::config 'sakuracloud_auth_secret')
+      export LEXICON_SAKURACLOUD_AUTH_SECRET
     fi
-    if bashio::config.has_value 'dns.softlayer_api_key'; then
-        LEXICON_SOFTLAYER_API_KEY=$(bashio::config 'dns.softlayer_api_key')
-        export LEXICON_SOFTLAYER_API_KEY
+    if bashio::config.has_value 'dns.softlayer_auth_username'; then
+      LEXICON_SOFTLAYER_AUTH_USERNAME=$(bashio::config 'softlayer_auth_username')
+      export LEXICON_SOFTLAYER_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.subreg_username'; then
-        LEXICON_SUBREG_USERNAME=$(bashio::config 'dns.subreg_username')
-        export LEXICON_SUBREG_USERNAME
+    if bashio::config.has_value 'dns.softlayer_auth_api_key'; then
+      LEXICON_SOFTLAYER_AUTH_API_KEY=$(bashio::config 'softlayer_auth_api_key')
+      export LEXICON_SOFTLAYER_AUTH_API_KEY
     fi
-    if bashio::config.has_value 'dns.subreg_password'; then
-        LEXICON_SUBREG_PASSWORD=$(bashio::config 'dns.subreg_password')
-        export LEXICON_SUBREG_PASSWORD
+    if bashio::config.has_value 'dns.transip_auth_username'; then
+      LEXICON_TRANSIP_AUTH_USERNAME=$(bashio::config 'transip_auth_username')
+      export LEXICON_TRANSIP_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.transip_username'; then
-        LEXICON_TRANSIP_USERNAME=$(bashio::config 'dns.transip_username')
-        export LEXICON_TRANSIP_USERNAME
+    if bashio::config.has_value 'dns.transip_auth_api_key'; then
+      LEXICON_TRANSIP_AUTH_API_KEY=$(bashio::config 'transip_auth_api_key')
+      export LEXICON_TRANSIP_AUTH_API_KEY
     fi
-    if bashio::config.has_value 'dns.transip_api_key'; then
-        LEXICON_TRANSIP_API_KEY=$(bashio::config 'dns.transip_api_key')
-        export LEXICON_TRANSIP_API_KEY
+    if bashio::config.has_value 'dns.transip_auth_key_is_global'; then
+      LEXICON_TRANSIP_AUTH_KEY_IS_GLOBAL=$(bashio::config 'transip_auth_key_is_global')
+      export LEXICON_TRANSIP_AUTH_KEY_IS_GLOBAL
     fi
-    if bashio::config.has_value 'dns.vultr_token'; then
-        LEXICON_VULTR_TOKEN=$(bashio::config 'dns.vultr_token')
-        export LEXICON_VULTR_TOKEN
+    if bashio::config.has_value 'dns.ultradns_auth_token'; then
+      LEXICON_ULTRADNS_AUTH_TOKEN=$(bashio::config 'ultradns_auth_token')
+      export LEXICON_ULTRADNS_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.yandex_token'; then
-        LEXICON_YANDEX_TOKEN=$(bashio::config 'dns.yandex_token')
-        export LEXICON_YANDEX_TOKEN
+    if bashio::config.has_value 'dns.ultradns_auth_username'; then
+      LEXICON_ULTRADNS_AUTH_USERNAME=$(bashio::config 'ultradns_auth_username')
+      export LEXICON_ULTRADNS_AUTH_USERNAME
     fi
-    if bashio::config.has_value 'dns.zeit_token'; then
-        LEXICON_ZEIT_TOKEN=$(bashio::config 'dns.zeit_token')
-        export LEXICON_ZEIT_TOKEN
+    if bashio::config.has_value 'dns.ultradns_auth_password'; then
+      LEXICON_ULTRADNS_AUTH_PASSWORD=$(bashio::config 'ultradns_auth_password')
+      export LEXICON_ULTRADNS_AUTH_PASSWORD
     fi
-    if bashio::config.has_value 'dns.zilore_key'; then
-        LEXICON_ZILORE_KEY=$(bashio::config 'dns.zilore_key')
-        export LEXICON_ZILORE_KEY
+    if bashio::config.has_value 'dns.valuedomain_auth_token'; then
+      LEXICON_VALUEDOMAIN_AUTH_TOKEN=$(bashio::config 'valuedomain_auth_token')
+      export LEXICON_VALUEDOMAIN_AUTH_TOKEN
     fi
-    if bashio::config.has_value 'dns.zonomi_token'; then
-        LEXICON_ZONOMI_TOKEN=$(bashio::config 'dns.zonomi_token')
-        export LEXICON_ZONOMI_TOKEN
+    if bashio::config.has_value 'dns.vercel_auth_token'; then
+      LEXICON_VERCEL_AUTH_TOKEN=$(bashio::config 'vercel_auth_token')
+      export LEXICON_VERCEL_AUTH_TOKEN
     fi
+    if bashio::config.has_value 'dns.vultr_auth_token'; then
+      LEXICON_VULTR_AUTH_TOKEN=$(bashio::config 'vultr_auth_token')
+      export LEXICON_VULTR_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.webgo_auth_username'; then
+      LEXICON_WEBGO_AUTH_USERNAME=$(bashio::config 'webgo_auth_username')
+      export LEXICON_WEBGO_AUTH_USERNAME
+    fi
+    if bashio::config.has_value 'dns.webgo_auth_password'; then
+      LEXICON_WEBGO_AUTH_PASSWORD=$(bashio::config 'webgo_auth_password')
+      export LEXICON_WEBGO_AUTH_PASSWORD
+    fi
+    if bashio::config.has_value 'dns.yandex_auth_token'; then
+      LEXICON_YANDEX_AUTH_TOKEN=$(bashio::config 'yandex_auth_token')
+      export LEXICON_YANDEX_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.yandexcloud_auth_token'; then
+      LEXICON_YANDEXCLOUD_AUTH_TOKEN=$(bashio::config 'yandexcloud_auth_token')
+      export LEXICON_YANDEXCLOUD_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.yandexcloud_dns_zone_id'; then
+      LEXICON_YANDEXCLOUD_DNS_ZONE_ID=$(bashio::config 'yandexcloud_dns_zone_id')
+      export LEXICON_YANDEXCLOUD_DNS_ZONE_ID
+    fi
+    if bashio::config.has_value 'dns.yandexcloud_cloud_id'; then
+      LEXICON_YANDEXCLOUD_CLOUD_ID=$(bashio::config 'yandexcloud_cloud_id')
+      export LEXICON_YANDEXCLOUD_CLOUD_ID
+    fi
+    if bashio::config.has_value 'dns.yandexcloud_folder_id'; then
+      LEXICON_YANDEXCLOUD_FOLDER_ID=$(bashio::config 'yandexcloud_folder_id')
+      export LEXICON_YANDEXCLOUD_FOLDER_ID
+    fi
+    if bashio::config.has_value 'dns.zeit_auth_token'; then
+      LEXICON_ZEIT_AUTH_TOKEN=$(bashio::config 'zeit_auth_token')
+      export LEXICON_ZEIT_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.zilore_auth_key'; then
+      LEXICON_ZILORE_AUTH_KEY=$(bashio::config 'zilore_auth_key')
+      export LEXICON_ZILORE_AUTH_KEY
+    fi
+    if bashio::config.has_value 'dns.zonomi_auth_token'; then
+      LEXICON_ZONOMI_AUTH_TOKEN=$(bashio::config 'zonomi_auth_token')
+      export LEXICON_ZONOMI_AUTH_TOKEN
+    fi
+    if bashio::config.has_value 'dns.zonomi_auth_entrypoint'; then
+      LEXICON_ZONOMI_AUTH_ENTRYPOINT=$(bashio::config 'zonomi_auth_entrypoint')
+      export LEXICON_ZONOMI_AUTH_ENTRYPOINT
+    fi
+
 
     #Create a config
     mkdir -p /etc/dehydrated
