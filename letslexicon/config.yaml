@@ -25,7 +25,7 @@ options:
   dns: {}
 schema:
   email: email
-  updatedelay: "int(0, 3600)"
+  updatedelay: int?
   domains:
     - str
   certfile: str
