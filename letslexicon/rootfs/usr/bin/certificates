@@ -25,6 +25,7 @@ refresh_certificates() {
     local email_regex
     local firstcertalias
     local keyfile
+    # shellcheck disable=SC2034
     local provider
     local timestamp
     local LEXICON_ALIYUN_KEY_ID
@@ -474,12 +475,13 @@ refresh_certificates() {
     while IFS= read -r line
     do
     certlist=( $line )
+    # shellcheck disable=SC2206
     certalias="${certlist[0]//[^A-Za-z0-9_-]/_}"
     if [ "$firstcertalias" == "" ]; then
         firstcertalias="${certalias}"
     fi
     bashio::log.info "[${certalias}]:\t$line"
-    printf "${line} > ${certalias}\n" >> "$cert_dir"/domains.txt
+    printf "%s > %s\n" "${line}" "${certalias}" >> "$cert_dir"/domains.txt
     done < <(printf '%s\n' "$domains")
 
     printf "# END Home Assistant Domains\n" >> "$cert_dir"/domains.txt
@@ -494,14 +496,14 @@ refresh_certificates() {
     # copy certs to store
     if [ "$keyfile" != "" ]; then
     if [[ -f "/ssl/${firstcertalias}/privkey.pem" ]]; then
-        cp -f /ssl/${firstcertalias}/privkey.pem /ssl/"$keyfile"
+        cp -f "/ssl/${firstcertalias}/privkey.pem" "/ssl/$keyfile"
         else
         bashio::log.error "Failed to get ${keyfile} from ${firstcertalias}"
     fi
     fi
     if [ "$certfile" != "" ]; then
     if [[ -f "/ssl/${firstcertalias}/fullchain.pem" ]]; then
-        cp -f /ssl/${firstcertalias}/fullchain.pem /ssl/"$certfile"
+        cp -f "/ssl/${firstcertalias}/fullchain.pem" "/ssl/$certfile"
         else
         bashio::log.error "Failed to get ${certfile} from ${firstcertalias}"
     fi

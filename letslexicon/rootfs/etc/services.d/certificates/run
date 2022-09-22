@@ -6,4 +6,4 @@
 
 bashio::log.info "Starting Certificate Refresh..."
 
-exec /usr/bin/certificates.sh
+exec /usr/bin/certificates
