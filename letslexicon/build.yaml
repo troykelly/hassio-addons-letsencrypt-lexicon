@@ -6,8 +6,8 @@ build_from:
   armv7: ghcr.io/hassio-addons/base-python/armv7:9.0.1
   i386: ghcr.io/hassio-addons/base-python/i386:9.0.1
 codenotary:
-  base_image: codenotary@troykelly.com
-  signer: codenotary@troykelly.com
+  base_image: codenotary@frenck.dev
+  signer: codenotary@frenck.dev
 args:
   DEHYDRATED_VERSION: v0.7.0
   LEXICON_VERSION: 3.11.4
