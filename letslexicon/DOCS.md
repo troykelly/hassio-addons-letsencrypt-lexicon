@@ -234,11 +234,8 @@ zilore_auth_key:
 zonomi_auth_token:
 zonomi_auth_entrypoint:
 ```
-  
 
 ## Configuration
-
-  
 
 Add-on configuration:
 
@@ -332,35 +329,18 @@ dns:
  - zeit
  - zilore
  - zonomi
-  
-
-
-
-  
 
 ## Automations
 
-  
-
 To save on system resources, the container for this addon shuts down on completion. The process will not renew your certificates unless they are nearing expriy, so you can and should check every day, in case for some reason there has been a failure to check.
-
-  
 
 The service slug for this addon is `99c39c95_letslexicon`.
 
-  
-
 ### Via the UI
-
-  
 
 Create a time triggered script (to be friendly to Let's Encrypt don't set it "on the hour" - set it for 02:38 for example). The script just needs to call a service, as below:
 
-  
-
 <img  width="608"  alt="restart_addon"  src="https://user-images.githubusercontent.com/4564803/101269717-d6659a80-37c5-11eb-99c5-31565af45986.png">
-
-  
 
 ### Manually creating
 
