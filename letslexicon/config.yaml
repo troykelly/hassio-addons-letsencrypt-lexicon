@@ -1,0 +1,167 @@
+---
+name: Let's Encrypt with Lexicon
+version: dev
+slug: letslexicon
+description: Manage certificate from Let's Encrypt using Lexicon DNS
+url: https://github.com/troykelly/hassio-addons-letsencrypt-lexicon/
+codenotary: codenotary@troykelly.com
+init: false
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+map:
+  - ssl:rw
+options:
+  email:
+  domains:
+    -
+  certfile: fullchain.pem
+  keyfile: privkey.pem
+  dns: {}
+schema:
+  email: email
+  domains:
+    - str
+  certfile: str
+  keyfile: str
+  dns:
+    provider: list(aliyun|aurora|auto|azure|cloudflare|cloudns|cloudxns|conoha|constellix|digitalocean|dinahosting|directadmin|dnsimple|dnsmadeeasy|dnspark|dnspod|dreamhost|easydns|easyname|exoscale|gandi|gehirn|glesys|godaddy|googleclouddns|gratisdns|henet|hetzner|hostingde|hover|infoblox|internetbs|inwx|linode|linode4|localzone|luadns|memset|namecheap|namesilo|netcup|nfsn|nsone|onapp|online|ovh|plesk|pointhq|powerdns|rackspace|rage4|rcodezero|route53|safedns|sakuracloud|softlayer|subreg|transip|vultr|yandex|zeit|zilore|zonomi)?
+    aliyun_key_id: str?
+    aliyun_secret: str?
+    aurora_api_key: str?
+    aurora_secret_key: str?
+    azure_client_id: str?
+    azure_client_secret: str?
+    azure_tenant_id: str?
+    azure_subscription_id: str?
+    azure_resource_group: str?
+    cloudflare_username: str?
+    cloudflare_token: str?
+    cloudns_id: str?
+    cloudns_subid: str?
+    cloudns_subuser: str?
+    cloudns_password: str?
+    cloudns_weight: str?
+    cloudns_port: str?
+    cloudxns_username: str?
+    cloudxns_token: str?
+    conoha_region: str?
+    conoha_token: str?
+    conoha_username: str?
+    conoha_password: str?
+    conoha_tenant_id: str?
+    constellix_username: str?
+    constellix_token: str?
+    digitalocean_token: str?
+    dinahosting_username: str?
+    dinahosting_password: str?
+    directadmin_password: str?
+    directadmin_username: str?
+    directadmin_endpoint: str?
+    dnsimple_token: str?
+    dnsimple_username: str?
+    dnsimple_password: str?
+    dnsimple-2fa: str?
+    dnsmadeeasy_username: str?
+    dnsmadeeasy_token: str?
+    dnspark_username: str?
+    dnspark_token: str?
+    dnspod_username: str?
+    dnspod_token: str?
+    dreamhost_token: str?
+    easydns_username: str?
+    easydns_token: str?
+    easyname_username: str?
+    easyname_password: str?
+    exoscale_key: str?
+    exoscale_secret: str?
+    gandi_token: str?
+    gandi_api_protocol: str?
+    gehirn_token: str?
+    gehirn_secret: str?
+    glesys_username: str?
+    glesys_token: str?
+    godaddy_key: str?
+    godaddy_secret: str?
+    googleclouddns_service_account_info: str?
+    gratisdns_username: str?
+    gratisdns_password: str?
+    henet_username: str?
+    henet_password: str?
+    hetzner_account: str?
+    hetzner_username: str?
+    hetzner_password: str?
+    hetzner_latency: str?
+    hostingde_token: str?
+    hover_username: str?
+    hover_password: str?
+    infoblox_user: str?
+    infoblox_psw: str?
+    infoblox_ib_view: str?
+    infoblox_ib_host: str?
+    internetbs_key: str?
+    internetbs_password: str?
+    inwx_username: str?
+    inwx_password: str?
+    linode_token: str?
+    linode4-token: str?
+    localzone_filename: str?
+    luadns_username: str?
+    luadns_token: str?
+    memset_token: str?
+    namecheap_token: str?
+    namecheap_username: str?
+    namecheap_client_ip: str?
+    namesilo_token: str?
+    netcup_customer_id: str?
+    netcup_api_key: str?
+    netcup_api_password: str?
+    nfsn_username: str?
+    nfsn_token: str?
+    nsone_token: str?
+    onapp_username: str?
+    onapp_token: str?
+    onapp_server: str?
+    online_token: str?
+    ovh_application_key: str?
+    ovh_application_secret: str?
+    ovh_consumer_key: str?
+    plesk_username: str?
+    plesk_password: str?
+    plesk_plesk_server: str?
+    pointhq_username: str?
+    pointhq_token: str?
+    powerdns_token: str?
+    powerdns_pdns_server: str?
+    powerdns_pdns_server_id: str?
+    powerdns_pdns_disable_notify: str?
+    rackspace_account: str?
+    rackspace_username: str?
+    rackspace_api_key: str?
+    rackspace_token: str?
+    rackspace_sleep_time: str?
+    rage4-username: str?
+    rage4-token: str?
+    rcodezero_token: str?
+    route53-access_key: str?
+    route53-access_secret: str?
+    route53-private_zone: str?
+    route53-username: str?
+    route53-token: str?
+    safedns_token: str?
+    sakuracloud_token: str?
+    sakuracloud_secret: str?
+    softlayer_username: str?
+    softlayer_api_key: str?
+    subreg_username: str?
+    subreg_password: str?
+    transip_username: str?
+    transip_api_key: str?
+    vultr_token: str?
+    yandex_token: str?
+    zeit_token: str?
+    zilore_key: str?
+    zonomi_token: str?

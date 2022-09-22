@@ -1,0 +1,9 @@
+#!/command/with-contenv bashio
+# ==============================================================================
+# Home Assistant Community Add-on: Let's Lexicon
+# Runs certificates script
+# ==============================================================================
+
+bashio::log.info "Starting Certificate Refresh..."
+
+exec /usr/bin/certificates

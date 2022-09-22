@@ -1,0 +1,17 @@
+---
+configuration:
+  email:
+    name: Email Address
+    description: The email address to provide to Let's Encrypt on certificate generation.
+  domains:
+    name: Domains
+    description: The list of domains to maintain.
+  certfile:
+    name: Certificate File
+    description: The file name of the certificate.
+  keyfile:
+    name: Key File
+    description: The file name of the certificate key.
+  dns:
+    name: DNS Configuration
+    description: Details about your DNS provider.
