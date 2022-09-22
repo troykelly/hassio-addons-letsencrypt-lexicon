@@ -21,6 +21,8 @@ refresh_certificates() {
     local certlist
     local dns_provider
     local domains
+    local escaped_cert_dir
+    local escaped_email
     local email
     local email_regex
     local firstcertalias
@@ -454,11 +456,13 @@ refresh_certificates() {
 
     #Create a config
     mkdir -p /etc/dehydrated
-    sed -i --regexp-extended "s/^#?BASEDIR=.*?$/BASEDIR=\"${cert_dir}\"/" /etc/dehydrated/config
+    escaped_cert_dir=$(printf '%s\n' "$cert_dir" | sed -e 's/[\/&]/\\&/g')
+    sed -i --regexp-extended "s/^#?BASEDIR=.*?$/BASEDIR=\"${escaped_cert_dir}\"/" /etc/dehydrated/config
 
     #Update email
     if [[ $email =~ ${email_regex} ]]; then
-        sed -i --regexp-extended "s/^#?CONTACT_EMAIL=.*?$/CONTACT_EMAIL=\"${email}\"/" /etc/dehydrated/config
+        escaped_email=$(printf '%s\n' "$email" | sed -e 's/[\/&]/\\&/g')
+        sed -i --regexp-extended "s/^#?CONTACT_EMAIL=.*?$/CONTACT_EMAIL=\"${escaped_email}\"/" /etc/dehydrated/config
     else
         sed -i --regexp-extended 's/^#?CONTACT_EMAIL=(.*?)$/#CONTACT_EMAIL=\1/' /etc/dehydrated/config
     fi
