@@ -40,7 +40,7 @@ You always need to provide the following entries within the configuration:
 ```yaml
 email: hello@home-assistant.io
 domains:
-- home-assistant.io
+  - home-assistant.io
 ```
 
 ```yaml
@@ -230,18 +230,15 @@ zilore_auth_key:
 zonomi_auth_token:
 zonomi_auth_entrypoint:
 ```
-  
 
 ## Configuration
-
-  
 
 Add-on configuration:
 
 ```yaml
 email: hello@home-assistant.io
 domains:
-- home-assistant.io
+  - home-assistant.io
 dns:
   provider: dns-cloudflare
   cloudflare_username: cf@home-assistant.io
@@ -250,113 +247,96 @@ dns:
 
 ## Supported DNS providers
 
- - aliyun
- - aurora
- - azure
- - cloudflare
- - cloudns
- - cloudxns
- - conoha
- - constellix
- - ddns
- - digitalocean
- - dinahosting
- - directadmin
- - dnsimple
- - dnsmadeeasy
- - dnspark
- - dnspod
- - dreamhost
- - dynu
- - easydns
- - easyname
- - euserv
- - exoscale
- - gandi
- - gehirn
- - glesys
- - godaddy
- - googleclouddns
- - gransy
- - gratisdns
- - henet
- - hetzner
- - hostingde
- - hover
- - infoblox
- - infomaniak
- - internetbs
- - inwx
- - joker
- - linode
- - linode4
- - localzone
- - luadns
- - memset
- - misaka
- - mythicbeasts
- - namecheap
- - namecom
- - namesilo
- - netcup
- - nfsn
- - njalla
- - nsone
- - oci
- - onapp
- - online
- - ovh
- - plesk
- - pointhq
- - porkbun
- - powerdns
- - rackspace
- - rage4
- - rcodezero
- - route53
- - safedns
- - sakuracloud
- - softlayer
- - transip
- - ultradns
- - valuedomain
- - vercel
- - vultr
- - webgo
- - yandex
- - yandexcloud
- - zeit
- - zilore
- - zonomi
-  
-
-
-
-  
+- aliyun
+- aurora
+- azure
+- cloudflare
+- cloudns
+- cloudxns
+- conoha
+- constellix
+- ddns
+- digitalocean
+- dinahosting
+- directadmin
+- dnsimple
+- dnsmadeeasy
+- dnspark
+- dnspod
+- dreamhost
+- dynu
+- easydns
+- easyname
+- euserv
+- exoscale
+- gandi
+- gehirn
+- glesys
+- godaddy
+- googleclouddns
+- gransy
+- gratisdns
+- henet
+- hetzner
+- hostingde
+- hover
+- infoblox
+- infomaniak
+- internetbs
+- inwx
+- joker
+- linode
+- linode4
+- localzone
+- luadns
+- memset
+- misaka
+- mythicbeasts
+- namecheap
+- namecom
+- namesilo
+- netcup
+- nfsn
+- njalla
+- nsone
+- oci
+- onapp
+- online
+- ovh
+- plesk
+- pointhq
+- porkbun
+- powerdns
+- rackspace
+- rage4
+- rcodezero
+- route53
+- safedns
+- sakuracloud
+- softlayer
+- transip
+- ultradns
+- valuedomain
+- vercel
+- vultr
+- webgo
+- yandex
+- yandexcloud
+- zeit
+- zilore
+- zonomi
 
 ## Automations
 
-  
-
 To save on system resources, the container for this addon shuts down on completion. The process will not renew your certificates unless they are nearing expriy, so you can and should check every day, in case for some reason there has been a failure to check.
-
-  
 
 The service slug for this addon is `99c39c95_letslexicon`.
 
-  
-
 ### Via the UI
-
-  
 
 Create a time triggered script (to be friendly to Let's Encrypt don't set it "on the hour" - set it for 02:38 for example). The script just needs to call a service, as below:
 
-  
-
 <img  width="608"  alt="restart_addon"  src="https://user-images.githubusercontent.com/4564803/101269717-d6659a80-37c5-11eb-99c5-31565af45986.png">
-
-  
 
 ### Manually creating
 
@@ -365,11 +345,11 @@ Create a time triggered script (to be friendly to Let's Encrypt don't set it "on
   alias: Check for certificate renewal
   description: Starts the Let's Lexicon Addon every day
   trigger:
-  - platform: time
+    - platform: time
   at: 13260
   condition: []
   action:
-  - service: hassio.addon_start
+    - service: hassio.addon_start
   data:
   addon: 99c39c95_letslexicon
   mode: single
