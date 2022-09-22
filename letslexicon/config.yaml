@@ -17,6 +17,7 @@ map:
   - ssl:rw
 options:
   email:
+  updatedelay: 30
   domains:
     -
   certfile: fullchain.pem
@@ -24,6 +25,7 @@ options:
   dns: {}
 schema:
   email: email
+  updatedelay: "int(0, 3600)"
   domains:
     - str
   certfile: str
