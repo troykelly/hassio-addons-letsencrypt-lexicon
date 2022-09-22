@@ -1,6 +1,6 @@
 ---
 name: Let's Encrypt with Lexicon
-version: "2.0.0"
+version: dev
 slug: letslexicon
 description: Manage certificate from Let's Encrypt using Lexicon DNS
 url: https://github.com/troykelly/hassio-addons-letsencrypt-lexicon/
@@ -13,18 +13,18 @@ arch:
   - armv7
   - i386
 map:
-- ssl:rw
+  - ssl:rw
 options:
   email:
   domains:
-  -
+    -
   certfile: fullchain.pem
   keyfile: privkey.pem
   dns: {}
 schema:
   email: email
   domains:
-  - str
+    - str
   certfile: str
   keyfile: str
   dns:

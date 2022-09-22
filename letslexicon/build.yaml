@@ -10,3 +10,4 @@ codenotary:
   signer: codenotary@troykelly.com
 args:
   DEHYDRATED_VERSION: v0.7.0
+  LEXICON_VERSION: 3.11.4

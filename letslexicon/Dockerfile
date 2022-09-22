@@ -6,6 +6,7 @@ FROM ${BUILD_FROM}
 COPY rootfs /
 
 ARG DEHYDRATED_VERSION=v0.7.0
+ARG LEXICON_VERSION=3.11.4
 
 # Setup base
 RUN apk add --no-cache \
@@ -23,8 +24,8 @@ RUN apk add --no-cache \
         libxslt-dev=1.1.35-r0 \
         musl-dev=1.2.3-r0 \
         openssl-dev=1.1.1q-r0 && \
-    pip3 install --upgrade pip && \
-    pip3 install --no-cache-dir dns-lexicon[full] && \
+    pip install --no-cache-dir --upgrade pip && \
+    pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} && \
     mkdir -p /opt /var/www/dehydrated && \
     git clone https://github.com/lukas2511/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ && \
     curl -L https://raw.githubusercontent.com/AnalogJ/lexicon/master/examples/dehydrated.default.sh -o /opt/dehydrated/dehydrated.default.sh && \
