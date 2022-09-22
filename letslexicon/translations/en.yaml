@@ -8,7 +8,7 @@ configuration:
     description: |
       How many seconds to wait after updating your DNS records. This may be required,
       depending on how slow your DNS host is to begin serving new DNS records after updating
-      them via the API. 30 seconds is a safe default, but some providers can be very slow 
+      them via the API. 30 seconds is a safe default, but some providers can be very slow
       (e.g. Linode).
   domains:
     name: Domains
