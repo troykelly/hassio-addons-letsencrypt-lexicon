@@ -14,7 +14,7 @@ The generated certificate can be used within others addons.
 
 ## Source Version
 
-[![Source][source-shield]][source]
+[![Source][source-shield]][source] [![Lexicon][lexicon-shield]][lexicon]
 
 ## Installation
 
@@ -382,3 +382,5 @@ In case you've found a bug, please [open an issue on our GitHub][issue].
 [certbot]: https://certbot.eff.org
 [source-shield]: https://img.shields.io/badge/version-v0.7.0-blue.svg
 [source]: https://github.com/lukas2511/dehydrated/releases/tag/v0.7.0
+[lexicon-shield]: https://img.shields.io/badge/lexicon-v3.11.4-blue.svg
+[lexicon]: https://github.com/AnalogJ/lexicon/releases/tag/v3.11.4
