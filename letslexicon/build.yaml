@@ -11,3 +11,4 @@ codenotary:
 args:
   DEHYDRATED_VERSION: v0.7.0
   LEXICON_VERSION: 3.11.4
+  PIP_VERSION: 22.2.2

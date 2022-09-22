@@ -7,8 +7,10 @@ COPY rootfs /
 
 ARG DEHYDRATED_VERSION=v0.7.0
 ARG LEXICON_VERSION=3.11.4
+ARG PIP_VERSION=22.2.2
 
 # Setup base
+# hadolint ignore=SC2102
 RUN apk add --no-cache \
         coreutils=9.1-r0 \
         libffi=3.4.2-r1 \
@@ -24,7 +26,7 @@ RUN apk add --no-cache \
         libxslt-dev=1.1.35-r0 \
         musl-dev=1.2.3-r0 \
         openssl-dev=1.1.1q-r0 && \
-    pip install --no-cache-dir --upgrade pip && \
+    pip install --no-cache-dir --upgrade pip==22.2.2 && \
     pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} && \
     mkdir -p /opt /var/www/dehydrated && \
     git clone https://github.com/lukas2511/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ && \
