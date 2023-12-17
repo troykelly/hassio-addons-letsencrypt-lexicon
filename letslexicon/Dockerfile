@@ -1,4 +1,4 @@
-ARG BUILD_FROM=ghcr.io/hassio-addons/base-python/amd64:9.0.1
+ARG BUILD_FROM=ghcr.io/hassio-addons/base-python/amd64:12.0.2
 # hadolint ignore=DL3006
 FROM ${BUILD_FROM}
 
@@ -12,21 +12,21 @@ ARG PIP_VERSION=23.3.1
 # Setup base
 # hadolint ignore=SC2102
 RUN apk add --no-cache \
-    coreutils=9.1-r0 \
-    libffi=3.4.2-r1 \
-    musl=1.2.3-r0 \
-    openssl=1.1.1q-r0 \
-    sed=4.8-r0 \
-    wget=1.21.3-r0 &&
+    coreutils=9.3-r1 \
+    libffi=3.4.4-r2 \
+    musl=1.2.4-r2 \
+    openssl=3.1.4-r1 \
+    sed=4.9-r2 \
+    wget=1.21.4-r0 && \
     apk add --no-cache --virtual .build-dependencies \
-        g++=11.2.1_git20220219-r2 \
-        git=2.36.2-r0 \
-        libffi-dev=3.4.2-r1 \
-        libxml2-dev=2.9.14-r1 \
-        libxslt-dev=1.1.35-r0 \
-        musl-dev=1.2.3-r0 \
-        openssl-dev=1.1.1q-r0 &&
-    pip install --no-cache-dir --upgrade pip==22.2.2 &&
+        g++=12.2.1_git20220924-r10 \
+        git=2.40.1-r0 \
+        libffi-dev=3.4.4-r2 \
+        libxml2-dev=2.11.6-r0 \
+        libxslt-dev=1.1.38-r0 \
+        musl-dev=1.2.4-r2 \
+        openssl-dev=3.1.4-r1 &&
+    pip install --no-cache-dir --upgrade pip==${PIP_VERSION} &&
     pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} &&
     mkdir -p /opt /var/www/dehydrated &&
     git clone https://github.com/lukas2511/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ &&

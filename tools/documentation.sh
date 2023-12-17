@@ -12,13 +12,13 @@ echo "" > "$output_file"
 providers=$(jq -r 'keys[]' "$json_file")
 
 for provider in $providers; do
-    # shellcheck disable=SC2129
+# shellcheck disable=SC2129
     echo "### $provider" >> "$output_file"
     echo "" >> "$output_file"
     echo '```yaml' >> "$output_file"
     echo "dns:" >> "$output_file"
     echo "  provider: $provider" >> "$output_file"
-    # shellcheck enable=SC2129
+# shellcheck enable=SC2129
 
     # Retrieve and write options for the provider
     options=$(jq -r --arg provider "$provider" '.[$provider] | keys[]' "$json_file")
