@@ -18,7 +18,6 @@ for provider in $providers; do
     echo '```yaml' >> "$output_file"
     echo "dns:" >> "$output_file"
     echo "  provider: $provider" >> "$output_file"
-# shellcheck enable=SC2129
 
     # Retrieve and write options for the provider
     options=$(jq -r --arg provider "$provider" '.[$provider] | keys[]' "$json_file")

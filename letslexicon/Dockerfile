@@ -25,13 +25,13 @@ RUN apk add --no-cache \
         libxml2-dev=2.11.6-r0 \
         libxslt-dev=1.1.38-r0 \
         musl-dev=1.2.4-r2 \
-        openssl-dev=3.1.4-r1 &&
-    pip install --no-cache-dir --upgrade pip==${PIP_VERSION} &&
-    pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} &&
-    mkdir -p /opt /var/www/dehydrated &&
-    git clone https://github.com/lukas2511/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ &&
-    curl -L https://raw.githubusercontent.com/AnalogJ/lexicon/master/examples/dehydrated.default.sh -o /opt/dehydrated/dehydrated.default.sh &&
-    chmod +x /opt/dehydrated/dehydrated.default.sh &&
+        openssl-dev=3.1.4-r1 && \
+    pip install --no-cache-dir --upgrade pip==${PIP_VERSION} && \
+    pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} && \
+    mkdir -p /opt /var/www/dehydrated && \
+    git clone https://github.com/lukas2511/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ && \
+    curl -L https://raw.githubusercontent.com/AnalogJ/lexicon/master/examples/dehydrated.default.sh -o /opt/dehydrated/dehydrated.default.sh && \
+    chmod +x /opt/dehydrated/dehydrated.default.sh && \
     apk del .build-dependencies
 
 # Build arguments
