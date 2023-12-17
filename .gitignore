@@ -2,6 +2,7 @@
 /providers.md
 /providers.json
 /provider_snippets.md
+/config_schema.yaml
 
 # General
 .DS_Store
