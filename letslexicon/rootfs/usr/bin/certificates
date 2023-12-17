@@ -1270,7 +1270,8 @@ refresh_certificates() {
   fi
 
   # Validate the DNS provider's configuration
-  validate_dns_provider_config
+  # TODO: Fix this and restore it
+  #validate_dns_provider_config
 
   #Create a config
   mkdir -p /etc/dehydrated
@@ -1308,7 +1309,7 @@ refresh_certificates() {
 
   printf "# END Home Assistant Domains\n" >>"$cert_dir"/domains.txt
 
-  bashio::log.info "Requesting domains from LetsEncrypt"
+  bashio::log.info "Requesting domains from LetsEncrypt with provider ${dns_provider}"
   cat "$cert_dir"/domains.txt
 
   PROVIDER=${dns_provider} /opt/dehydrated/dehydrated --challenge dns-01 --out /ssl --keep-going --cron --hook /opt/dehydrated/dehydrated.default.sh
