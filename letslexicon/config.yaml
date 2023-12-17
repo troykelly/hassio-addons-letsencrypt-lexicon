@@ -31,180 +31,189 @@ schema:
   certfile: str
   keyfile: str
   dns:
-    provider: list(aliyun|aurora|azure|cloudflare|cloudns|cloudxns|conoha|constellix|ddns|digitalocean|dinahosting|directadmin|dnsimple|dnsmadeeasy|dnspark|dnspod|dreamhost|dynu|easydns|easyname|euserv|exoscale|gandi|gehirn|glesys|godaddy|googleclouddns|gransy|gratisdns|henet|hetzner|hostingde|hover|infoblox|infomaniak|internetbs|inwx|joker|linode|linode4|localzone|luadns|memset|misaka|mythicbeasts|namecheap|namecom|namesilo|netcup|nfsn|njalla|nsone|oci|onapp|online|ovh|plesk|pointhq|porkbun|powerdns|rackspace|rage4|rcodezero|route53|safedns|sakuracloud|softlayer|transip|ultradns|valuedomain|vercel|vultr|webgo|yandex|yandexcloud|zeit|zilore|zonomi|)?
+    provider: list(
+      aliyun|aurora|azure|cloudflare|cloudns|cloudxns|conoha|constellix|ddns|digitalocean|dinahosting|directadmin|dnsimple|dnsmadeeasy|dnspark|dnspod|dnsservices|dreamhost|duckdns|dynu|easydns|easyname|euserv|exoscale|flexibleengine|gandi|gehirn|glesys|godaddy|googleclouddns|gransy|gratisdns|henet|hetzner|hostingde|hover|infoblox|infomaniak|internetbs|inwx|joker|linode|linode4|localzone|luadns|memset|misaka|mythicbeasts|namecheap|namecom|namesilo|netcup|nfsn|njalla|nsone|oci|onapp|online|ovh|plesk|pointhq|porkbun|powerdns|rackspace|rage4|rcodezero|route53|safedns|sakuracloud|softlayer|transip|ultradns|valuedomain|vercel|vultr|webgo|wedos|yandex|yandexcloud|zeit|zilore|zonomi)?
+    # Provider specific options
     aliyun_auth_key_id: str?
     aliyun_auth_secret: str?
     aurora_auth_api_key: str?
     aurora_auth_secret_key: str?
     azure_auth_client_id: str?
     azure_auth_client_secret: str?
-    azure_auth_tenant_id: str?
     azure_auth_subscription_id: str?
+    azure_auth_tenant_id: str?
     azure_resource_group: str?
-    cloudflare_auth_username: str?
     cloudflare_auth_token: str?
+    cloudflare_auth_username: str?
     cloudflare_zone_id: str?
     cloudns_auth_id: str?
+    cloudns_auth_password: str?
     cloudns_auth_subid: str?
     cloudns_auth_subuser: str?
-    cloudns_auth_password: str?
-    cloudns_weight: str?
     cloudns_port: str?
-    cloudxns_auth_username: str?
+    cloudns_weight: str?
     cloudxns_auth_token: str?
+    cloudxns_auth_username: str?
+    conoha_auth_password: str?
     conoha_auth_region: str?
+    conoha_auth_tenant_id: str?
     conoha_auth_token: str?
     conoha_auth_username: str?
-    conoha_auth_password: str?
-    conoha_auth_tenant_id: str?
-    constellix_auth_username: str?
     constellix_auth_token: str?
+    constellix_auth_username: str?
     ddns_auth_token: str?
     ddns_ddns_server: str?
     digitalocean_auth_token: str?
-    dinahosting_auth_username: str?
     dinahosting_auth_password: str?
+    dinahosting_auth_username: str?
     directadmin_auth_password: str?
     directadmin_auth_username: str?
     directadmin_endpoint: str?
+    dnsimple_auth_password: str?
     dnsimple_auth_token: str?
     dnsimple_auth_username: str?
-    dnsimple_auth_password: str?
-    dnsmadeeasy_auth_username: str?
     dnsmadeeasy_auth_token: str?
-    dnspark_auth_username: str?
+    dnsmadeeasy_auth_username: str?
     dnspark_auth_token: str?
-    dnspod_auth_username: str?
+    dnspark_auth_username: str?
     dnspod_auth_token: str?
+    dnspod_auth_username: str?
+    dnsservices_auth_password: str?
+    dnsservices_auth_username: str?
     dreamhost_auth_token: str?
+    duckdns_auth_token: str?
     dynu_auth_token: str?
-    easydns_auth_username: str?
     easydns_auth_token: str?
-    easyname_auth_username: str?
+    easydns_auth_username: str?
     easyname_auth_password: str?
-    euserv_auth_username: str?
+    easyname_auth_username: str?
     euserv_auth_password: str?
+    euserv_auth_username: str?
     exoscale_auth_key: str?
     exoscale_auth_secret: str?
-    gandi_auth_token: str?
+    flexibleengine_auth_token: str?
+    flexibleengine_zone_id: str?
     gandi_api_protocol: str?
-    gehirn_auth_token: str?
+    gandi_auth_token: str?
     gehirn_auth_secret: str?
-    glesys_auth_username: str?
+    gehirn_auth_token: str?
     glesys_auth_token: str?
+    glesys_auth_username: str?
     godaddy_auth_key: str?
     godaddy_auth_secret: str?
     googleclouddns_auth_service_account_info: str?
-    googleclouddns_specify: str?
-    gransy_auth_username: str?
     gransy_auth_password: str?
-    gratisdns_auth_username: str?
+    gransy_auth_username: str?
     gratisdns_auth_password: str?
-    henet_auth_username: str?
+    gratisdns_auth_username: str?
     henet_auth_password: str?
+    henet_auth_username: str?
     hetzner_auth_token: str?
     hostingde_auth_token: str?
-    hover_auth_username: str?
     hover_auth_password: str?
-    infoblox_auth_user: str?
+    hover_auth_totp_secret: str?
+    hover_auth_username: str?
     infoblox_auth_psw: str?
-    infoblox_ib_view: str?
+    infoblox_auth_user: str?
     infoblox_ib_host: str?
+    infoblox_ib_view: str?
     infomaniak_auth_token: str?
     internetbs_auth_key: str?
     internetbs_auth_password: str?
-    inwx_auth_username: str?
     inwx_auth_password: str?
+    inwx_auth_username: str?
     joker_auth_token: str?
     linode_auth_token: str?
     linode4_auth_token: str?
     localzone_filename: str?
-    luadns_auth_username: str?
     luadns_auth_token: str?
+    luadns_auth_username: str?
     memset_auth_token: str?
     misaka_auth_token: str?
-    mythicbeasts_auth_username: str?
     mythicbeasts_auth_password: str?
     mythicbeasts_auth_token: str?
-    namecheap_auth_token: str?
-    namecheap_auth_username: str?
+    mythicbeasts_auth_username: str?
     namecheap_auth_client_ip: str?
     namecheap_auth_sandbox: str?
-    namecom_auth_username: str?
+    namecheap_auth_token: str?
+    namecheap_auth_username: str?
     namecom_auth_token: str?
+    namecom_auth_username: str?
     namesilo_auth_token: str?
-    netcup_auth_customer_id: str?
     netcup_auth_api_key: str?
     netcup_auth_api_password: str?
-    nfsn_auth_username: str?
+    netcup_auth_customer_id: str?
     nfsn_auth_token: str?
+    nfsn_auth_username: str?
     njalla_auth_token: str?
     nsone_auth_token: str?
     oci_auth_config_file: str?
-    oci_auth_profile: str?
-    oci_auth_user: str?
-    oci_auth_tenancy: str?
     oci_auth_fingerprint: str?
     oci_auth_key_content: str?
     oci_auth_key_file: str?
     oci_auth_pass_phrase: str?
+    oci_auth_profile: str?
     oci_auth_region: str?
+    oci_auth_tenancy: str?
     oci_auth_type: str?
-    onapp_auth_username: str?
-    onapp_auth_token: str?
+    oci_auth_user: str?
     onapp_auth_server: str?
+    onapp_auth_token: str?
+    onapp_auth_username: str?
     online_auth_token: str?
-    ovh_auth_entrypoint: str?
     ovh_auth_application_key: str?
     ovh_auth_application_secret: str?
     ovh_auth_consumer_key: str?
-    plesk_auth_username: str?
+    ovh_auth_entrypoint: str?
     plesk_auth_password: str?
+    plesk_auth_username: str?
     plesk_plesk_server: str?
-    pointhq_auth_username: str?
     pointhq_auth_token: str?
+    pointhq_auth_username: str?
     porkbun_auth_key: str?
     porkbun_auth_secret: str?
     powerdns_auth_token: str?
+    powerdns_pdns_disable_notify: str?
     powerdns_pdns_server: str?
     powerdns_pdns_server_id: str?
-    powerdns_pdns_disable_notify: str?
     rackspace_auth_account: str?
-    rackspace_auth_username: str?
     rackspace_auth_api_key: str?
     rackspace_auth_token: str?
+    rackspace_auth_username: str?
     rackspace_sleep_time: str?
-    rage4_auth_username: str?
     rage4_auth_token: str?
+    rage4_auth_username: str?
     rcodezero_auth_token: str?
     route53_auth_access_key: str?
     route53_auth_access_secret: str?
+    route53_auth_token: str?
+    route53_auth_username: str?
     route53_private_zone: str?
     route53_zone_id: str?
-    route53_auth_username: str?
-    route53_auth_token: str?
     safedns_auth_token: str?
-    sakuracloud_auth_token: str?
     sakuracloud_auth_secret: str?
-    softlayer_auth_username: str?
+    sakuracloud_auth_token: str?
     softlayer_auth_api_key: str?
-    transip_auth_username: str?
+    softlayer_auth_username: str?
     transip_auth_api_key: str?
     transip_auth_key_is_global: str?
+    transip_auth_username: str?
+    ultradns_auth_password: str?
     ultradns_auth_token: str?
     ultradns_auth_username: str?
-    ultradns_auth_password: str?
     valuedomain_auth_token: str?
     vercel_auth_token: str?
     vultr_auth_token: str?
-    webgo_auth_username: str?
     webgo_auth_password: str?
+    webgo_auth_username: str?
+    wedos_auth_pass: str?
+    wedos_auth_username: str?
     yandex_auth_token: str?
     yandexcloud_auth_token: str?
-    yandexcloud_dns_zone_id: str?
     yandexcloud_cloud_id: str?
+    yandexcloud_dns_zone_id: str?
     yandexcloud_folder_id: str?
     zeit_auth_token: str?
     zilore_auth_key: str?
-    zonomi_auth_token: str?
     zonomi_auth_entrypoint: str?
+    zonomi_auth_token: str?
