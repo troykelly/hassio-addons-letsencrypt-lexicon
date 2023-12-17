@@ -5,19 +5,19 @@ FROM ${BUILD_FROM}
 # Copy root filesystem
 COPY rootfs /
 
-ARG DEHYDRATED_VERSION=v0.7.0
-ARG LEXICON_VERSION=3.11.4
-ARG PIP_VERSION=22.2.2
+ARG DEHYDRATED_VERSION=v0.7.1
+ARG LEXICON_VERSION=3.17.0
+ARG PIP_VERSION=23.3.1
 
 # Setup base
 # hadolint ignore=SC2102
 RUN apk add --no-cache \
-        coreutils=9.1-r0 \
-        libffi=3.4.2-r1 \
-        musl=1.2.3-r0 \
-        openssl=1.1.1q-r0 \
-        sed=4.8-r0 \
-        wget=1.21.3-r0 && \
+    coreutils=9.1-r0 \
+    libffi=3.4.2-r1 \
+    musl=1.2.3-r0 \
+    openssl=1.1.1q-r0 \
+    sed=4.8-r0 \
+    wget=1.21.3-r0 &&
     apk add --no-cache --virtual .build-dependencies \
         g++=11.2.1_git20220219-r2 \
         git=2.36.2-r0 \
@@ -25,13 +25,13 @@ RUN apk add --no-cache \
         libxml2-dev=2.9.14-r1 \
         libxslt-dev=1.1.35-r0 \
         musl-dev=1.2.3-r0 \
-        openssl-dev=1.1.1q-r0 && \
-    pip install --no-cache-dir --upgrade pip==22.2.2 && \
-    pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} && \
-    mkdir -p /opt /var/www/dehydrated && \
-    git clone https://github.com/lukas2511/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ && \
-    curl -L https://raw.githubusercontent.com/AnalogJ/lexicon/master/examples/dehydrated.default.sh -o /opt/dehydrated/dehydrated.default.sh && \
-    chmod +x /opt/dehydrated/dehydrated.default.sh && \
+        openssl-dev=1.1.1q-r0 &&
+    pip install --no-cache-dir --upgrade pip==22.2.2 &&
+    pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} &&
+    mkdir -p /opt /var/www/dehydrated &&
+    git clone https://github.com/lukas2511/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ &&
+    curl -L https://raw.githubusercontent.com/AnalogJ/lexicon/master/examples/dehydrated.default.sh -o /opt/dehydrated/dehydrated.default.sh &&
+    chmod +x /opt/dehydrated/dehydrated.default.sh &&
     apk del .build-dependencies
 
 # Build arguments
