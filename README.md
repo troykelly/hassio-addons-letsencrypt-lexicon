@@ -35,7 +35,19 @@ To use this add-on, you need to supply the config for your DNS provider
 - Allows to request wildcard certificates (\*.yourdomain.com)
 - Doesn’t need you to open a port to your hass.io host on your router.
 
-You always need to provide the email and domain entries within the configuration:
+### Configuration Note
+
+If using the 'UI' editor, do not include the "dns" key. ie in the _DNS Configuration_ section you will just have something like
+
+```yaml
+provider: godaddy
+godaddy_auth_key: SPECIFY THE KEY TO ACCESS THE API
+godaddy_auth_secret: SPECIFY THE SECRET TO ACCESS THE API
+```
+
+### Minimum Configuration
+
+You always need to provide the email and domain entries within the configuration yaml, or in the UI:
 
 ```yaml
 email: hello@home-assistant.io
