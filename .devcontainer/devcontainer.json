@@ -14,15 +14,15 @@
       "nonFreePackages": true,
       "username": "vscode",
       "userUid": "automatic",
-      "userGid": "automatic"
+      "userGid": "automatic",
     },
     "ghcr.io/devcontainers-contrib/features/zsh-plugins:0": {
       "plugins": "ssh-agent npm",
       "omzPlugins": "https://github.com/zsh-users/zsh-autosuggestions",
-      "username": "vscode"
+      "username": "vscode",
     },
-    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {}
-  }
+    "ghcr.io/stuartleeks/dev-container-features/shell-history:0": {},
+  },
 
   // Features to add to the dev container. More info: https://containers.dev/features.
   // "features": {},

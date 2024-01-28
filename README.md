@@ -37,7 +37,7 @@ To use this add-on, you need to supply the config for your DNS provider
 
 ### Configuration Note
 
-If using the 'UI' editor, do not include the "dns" key. ie in the *DNS Configuration* section you will just have something like
+If using the 'UI' editor, do not include the "dns" key. ie in the _DNS Configuration_ section you will just have something like
 
 ```yaml
 provider: godaddy
