@@ -7,25 +7,25 @@ COPY rootfs /
 
 ARG DEHYDRATED_VERSION=v0.7.1
 ARG LEXICON_VERSION=3.17.0
-ARG PIP_VERSION=23.3.1
+ARG PIP_VERSION=24.3.1
 
 # Setup base
 # hadolint ignore=SC2102
 RUN apk add --no-cache \
-    coreutils=9.3-r1 \
-    libffi=3.4.4-r2 \
-    musl=1.2.4-r2 \
-    openssl=3.1.4-r1 \
+    coreutils=9.5-r2 \
+    libffi=3.4.6-r0 \
+    musl=1.2.5-r8 \
+    openssl=3.3.2-r4 \
     sed=4.9-r2 \
-    wget=1.21.4-r0 && \
+    wget=1.25.0-r0 && \
     apk add --no-cache --virtual .build-dependencies \
-        g++=12.2.1_git20220924-r10 \
-        git=2.40.1-r0 \
-        libffi-dev=3.4.4-r2 \
-        libxml2-dev=2.11.6-r0 \
-        libxslt-dev=1.1.38-r0 \
-        musl-dev=1.2.4-r2 \
-        openssl-dev=3.1.4-r1 && \
+        g++=14.2.0-r4 \
+        git=2.47.2-r0 \
+        libffi-dev=3.4.6-r0 \
+        libxml2-dev=2.13.4-r3 \
+        libxslt-dev=1.1.42-r1 \
+        musl-dev=1.2.5-r8 \
+        openssl-dev=3.3.2-r4 && \
     pip install --no-cache-dir --upgrade pip==${PIP_VERSION} && \
     pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} && \
     mkdir -p /opt /var/www/dehydrated && \
