@@ -967,7 +967,7 @@ In case you've found a bug, please [open an issue on our GitHub][issue].
 [forum]: https://community.home-assistant.io
 [issue]: https://github.com/troykelly/hassio-addons-letsencrypt-lexicon/issues
 [certbot]: https://certbot.eff.org
-[source-shield]: https://img.shields.io/badge/version-v0.7.0-blue.svg
-[source]: https://github.com/lukas2511/dehydrated/releases/tag/v0.7.0
-[lexicon-shield]: https://img.shields.io/badge/lexicon-v3.11.4-blue.svg
-[lexicon]: https://github.com/AnalogJ/lexicon/releases/tag/v3.11.4
+[source-shield]: https://img.shields.io/badge/version-v0.7.1-blue.svg
+[source]: https://github.com/lukas2511/dehydrated/releases/tag/v0.7.1
+[lexicon-shield]: https://img.shields.io/badge/lexicon-v3.20.1-blue.svg
+[lexicon]: https://github.com/AnalogJ/lexicon/releases/tag/v3.20.1
