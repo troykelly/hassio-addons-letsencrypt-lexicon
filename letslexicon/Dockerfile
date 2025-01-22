@@ -29,8 +29,8 @@ RUN apk add --no-cache \
     pip install --no-cache-dir --upgrade pip==${PIP_VERSION} && \
     pip3 install --no-cache-dir dns-lexicon[full]==${LEXICON_VERSION} && \
     mkdir -p /opt /var/www/dehydrated && \
-    git clone https://github.com/lukas2511/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ && \
-    curl -L https://raw.githubusercontent.com/AnalogJ/lexicon/master/examples/dehydrated.default.sh -o /opt/dehydrated/dehydrated.default.sh && \
+    git clone https://github.com/dehydrated-io/dehydrated.git --branch ${DEHYDRATED_VERSION} --depth 1 /opt/dehydrated/ && \
+    curl -L https://raw.githubusercontent.com/dns-lexicon/dns-lexicon/refs/heads/main/examples/dehydrated.default.sh -o /opt/dehydrated/dehydrated.default.sh && \
     chmod +x /opt/dehydrated/dehydrated.default.sh && \
     apk del .build-dependencies
 
