@@ -32,7 +32,7 @@ schema:
   keyfile: str
   dns:
     provider: list(
-      aliyun|aurora|azure|cloudflare|cloudns|cloudxns|conoha|constellix|ddns|digitalocean|dinahosting|directadmin|dnsimple|dnsmadeeasy|dnspark|dnspod|dnsservices|dreamhost|duckdns|dynu|easydns|easyname|euserv|exoscale|flexibleengine|gandi|gehirn|glesys|godaddy|googleclouddns|gransy|gratisdns|henet|hetzner|hostingde|hover|infoblox|infomaniak|internetbs|inwx|joker|linode|linode4|localzone|luadns|memset|misaka|mythicbeasts|namecheap|namecom|namesilo|netcup|nfsn|njalla|nsone|oci|onapp|online|ovh|plesk|pointhq|porkbun|powerdns|rackspace|rage4|rcodezero|route53|safedns|sakuracloud|softlayer|transip|ultradns|valuedomain|vercel|vultr|webgo|wedos|yandex|yandexcloud|zeit|zilore|zonomi)?
+      aliyun|aurora|azure|cloudflare|cloudns|cloudxns|conoha|constellix|ddns|digitalocean|dinahosting|directadmin|dnsimple|dnsmadeeasy|dnspark|dnspod|dnsservices|dreamhost|duckdns|dynu|easydns|easyname|euserv|exoscale|flexibleengine|gandi|gehirn|glesys|godaddy|googleclouddns|gransy|gratisdns|henet|hetzner|hostingde|hover|infoblox|infomaniak|internetbs|inwx|ionos|joker|linode|linode4|localzone|luadns|memset|misaka|mythicbeasts|namecheap|namecom|namesilo|netcup|nfsn|njalla|nsone|oci|onapp|online|ovh|plesk|pointhq|porkbun|powerdns|qcloud|rackspace|rage4|rcodezero|regfish|route53|safedns|sakuracloud|softlayer|timeweb|transip|ultradns|valuedomain|vercel|vultr|webgo|wedos|yandex|yandexcloud|zeit|zilore|zonomi)?
     # Provider specific options
     aliyun_auth_key_id: str?
     aliyun_auth_secret: str?
@@ -122,6 +122,7 @@ schema:
     internetbs_auth_password: str?
     inwx_auth_password: str?
     inwx_auth_username: str?
+    ionos_api_key: str?
     joker_auth_token: str?
     linode_auth_token: str?
     linode4_auth_token: str?
@@ -176,6 +177,8 @@ schema:
     powerdns_pdns_disable_notify: str?
     powerdns_pdns_server: str?
     powerdns_pdns_server_id: str?
+    qcloud_secret_id: str?
+    qcloud_secret_key: str?
     rackspace_auth_account: str?
     rackspace_auth_api_key: str?
     rackspace_auth_token: str?
@@ -184,6 +187,7 @@ schema:
     rage4_auth_token: str?
     rage4_auth_username: str?
     rcodezero_auth_token: str?
+    regfish_auth_api_key: str?
     route53_auth_access_key: str?
     route53_auth_access_secret: str?
     route53_auth_token: str?
@@ -195,6 +199,7 @@ schema:
     sakuracloud_auth_token: str?
     softlayer_auth_api_key: str?
     softlayer_auth_username: str?
+    timeweb_auth_token: str?
     transip_auth_api_key: str?
     transip_auth_key_is_global: str?
     transip_auth_username: str?

@@ -69,6 +69,7 @@ infoblox
 infomaniak
 internetbs
 inwx
+ionos
 joker
 linode
 linode4
@@ -92,13 +93,16 @@ plesk
 pointhq
 porkbun
 powerdns
+qcloud
 rackspace
 rage4
 rcodezero
+regfish
 route53
 safedns
 sakuracloud
 softlayer
+timeweb
 transip
 ultradns
 valuedomain
@@ -710,6 +714,13 @@ refresh_certificates() {
     bashio::log.info "Set inwx_auth_username"
   fi
 
+# ionos
+  if bashio::config.has_value 'dns.ionos_api_key'; then
+    LEXICON_IONOS_API_KEY=$(bashio::config 'dns.ionos_api_key')
+    export LEXICON_IONOS_API_KEY
+    bashio::log.info "Set ionos_api_key"
+  fi
+
 # joker
   if bashio::config.has_value 'dns.joker_auth_token'; then
     LEXICON_JOKER_AUTH_TOKEN=$(bashio::config 'dns.joker_auth_token')
@@ -1026,6 +1037,18 @@ refresh_certificates() {
     bashio::log.info "Set powerdns_pdns_server_id"
   fi
 
+# qcloud
+  if bashio::config.has_value 'dns.qcloud_secret_id'; then
+    LEXICON_QCLOUD_SECRET_ID=$(bashio::config 'dns.qcloud_secret_id')
+    export LEXICON_QCLOUD_SECRET_ID
+    bashio::log.info "Set qcloud_secret_id"
+  fi
+  if bashio::config.has_value 'dns.qcloud_secret_key'; then
+    LEXICON_QCLOUD_SECRET_KEY=$(bashio::config 'dns.qcloud_secret_key')
+    export LEXICON_QCLOUD_SECRET_KEY
+    bashio::log.info "Set qcloud_secret_key"
+  fi
+
 # rackspace
   if bashio::config.has_value 'dns.rackspace_auth_account'; then
     LEXICON_RACKSPACE_AUTH_ACCOUNT=$(bashio::config 'dns.rackspace_auth_account')
@@ -1070,6 +1093,13 @@ refresh_certificates() {
     LEXICON_RCODEZERO_AUTH_TOKEN=$(bashio::config 'dns.rcodezero_auth_token')
     export LEXICON_RCODEZERO_AUTH_TOKEN
     bashio::log.info "Set rcodezero_auth_token"
+  fi
+
+# regfish
+  if bashio::config.has_value 'dns.regfish_auth_api_key'; then
+    LEXICON_REGFISH_AUTH_API_KEY=$(bashio::config 'dns.regfish_auth_api_key')
+    export LEXICON_REGFISH_AUTH_API_KEY
+    bashio::log.info "Set regfish_auth_api_key"
   fi
 
 # route53
@@ -1133,6 +1163,13 @@ refresh_certificates() {
     LEXICON_SOFTLAYER_AUTH_USERNAME=$(bashio::config 'dns.softlayer_auth_username')
     export LEXICON_SOFTLAYER_AUTH_USERNAME
     bashio::log.info "Set softlayer_auth_username"
+  fi
+
+# timeweb
+  if bashio::config.has_value 'dns.timeweb_auth_token'; then
+    LEXICON_TIMEWEB_AUTH_TOKEN=$(bashio::config 'dns.timeweb_auth_token')
+    export LEXICON_TIMEWEB_AUTH_TOKEN
+    bashio::log.info "Set timeweb_auth_token"
   fi
 
 # transip
